@@ -1,0 +1,50 @@
+% Encoding: UTF-8
+% $Id: bioinfo.bib 286 2016-01-15 18:50:25Z jtk $
+% $Date: 2016-01-15 18:50:25 +0000 (Fri, 15 Jan 2016) $
+% $Author: jtk $
+
+@Article{Vanuytrecht2014,
+  author   = {Eline Vanuytrecht and Dirk Raes and Pasquale Steduto and Theodore C. Hsiao and Elias Fereres and Lee K. Heng and Marga Garcia Vila and Patricia Mejias Moreno},
+  title    = {AquaCrop: FAO's crop water productivity and yield response model},
+  journal  = {Environmental Modelling \& Software},
+  year     = {2014},
+  volume   = {62},
+  pages    = {351 - 360},
+  issn     = {1364-8152},
+  doi      = {https://doi.org/10.1016/j.envsoft.2014.08.005},
+  keywords = {AquaCrop, Crop modeling, Water-driven growth engine, Biomass water productivity, Water stress, Climate change},
+  url      = {http://www.sciencedirect.com/science/article/pii/S136481521400228X},
+}
+
+@Article{Saxton2006,
+  author        = {Saxton, K. E.},
+  title         = {Soil Water Characteristic Estimates by Texture and Organic Matter for Hydrologic Solutions},
+  journal       = {Soil Science Society of America journal},
+  year          = {2006},
+  volume        = {v. 70},
+  number        = {no. 5},
+  pages         = {pp. 1569-1578--2006 v.70 no.5},
+  __markedentry = {[X992029:]},
+  abstract      = {Hydrologic analyses often involve the evaluation of soil water infiltration, conductivity, storage, and plant-water relationships. To define the hydrologic soil water effects requires estimating soil water characteristics for water potential and hydraulic conductivity using soil variables such as texture, organic matter (OM), and structure. Field or laboratory measurements are difficult, costly, and often impractical for many hydrologic analyses. Statistical correlations between soil texture, soil water potential, and hydraulic conductivity can provide estimates sufficiently accurate for many analyses and decisions. This study developed new soil water characteristic equations from the currently available USDA soil database using only the readily available variables of soil texture and OM. These equations are similar to those previously reported by Saxton et al. but include more variables and application range. They were combined with previously reported relationships for tensions and conductivities and the effects of density, gravel, and salinity to form a comprehensive predictive system of soil water characteristics for agricultural water management and hydrologic analyses. Verification was performed using independent data sets for a wide range of soil textures. The predictive system was programmed for a graphical computerized model to provide easy application and rapid solutions and is available at http://hydrolab.arsusda.gov/soilwater/Index.htm.},
+  database      = {PubAg},
+  editor        = {Saxton, K. E. and Rawls, W. J.},
+  keywords      = {soil water characteristic, soil texture, soil organic matter, soil hydraulic properties, hydraulic conductivity, gravel, soil salinity, soil matric potential, equations, prediction},
+}
+
+@Article{Raes2009,
+  author        = {Raes, Dirk and Steduto, Pasquale and Hsiao, Theodore C. and Fereres, Elias},
+  title         = {AquaCrop—The FAO Crop Model to Simulate Yield Response to Water: II. Main Algorithms and Software Description},
+  journal       = {Agronomy Journal},
+  year          = {2009},
+  volume        = {101},
+  number        = {3},
+  pages         = {438--447},
+  __markedentry = {[X992029:6]},
+  abstract      = {The AquaCrop model was developed to replace the former FAO I&D Paper 33 procedures for the estimation of crop productivity in relation to water supply and agronomic management in a framework based on current plant physiological and soil water budgeting concepts. This paper presents the software of AquaCrop for which the concepts and underlying principles are described in the companion paper (Steduto et al., 2009). Input consists of weather data, crop characteristics, and soil and management characteristics that define the environment in which the crop will develop. Algorithms and calculation procedures modeling the infiltration of water, the drainage out of the root zone, the canopy and root zone development, the evaporation and transpiration rate, the biomass production, and the yield formation are presented. The mechanisms of crop response to cope with water shortage are described by only a few parameters, making the underlying processes more transparent to the user. AquaCrop is a menu-driven program with a well-developed user interface. With the help of graphs which are updated each time step (1 d) during the simulation run, the user can track changes in soil water content, and the corresponding changes in crop development, soil evaporation and transpiration rate, biomass production, and yield development. One can halt the simulation at each time step, to study the effect of changes in water related inputs, making the model particularly suitable for developing deficit irrigation strategies and scenario analysis.},
+  address       = {Madison, WI},
+  doi           = {10.2134/agronj2008.0140s},
+  publisher     = {American Society of Agronomy},
+  url           = {http://dx.doi.org/10.2134/agronj2008.0140s},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

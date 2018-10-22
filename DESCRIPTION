@@ -1,0 +1,31 @@
+Package: AquaCropR
+Title: AquaCrop for R
+Version: 0.0.0.9000
+Authors@R: person("Anyela", "Camargo", email = "anyelavcamargo@gmail.com", role = c("aut", "cre"))
+Maintainer: Anyela V Camargo <anyelavcamargo@gmail.com>
+Description: The AquaCropR package is the R implementation of the AquaCrop crop 
+    growth model developed by FAO (http://www.fao.org/aquacrop) to address food 
+    security and assess the effect of the environment and management on crop 
+    production. AquaCrop simulates the yield response of herbaceous crops to
+    water and is particularly well suited to conditions in which water is a key 
+    limiting factor in crop production. The AquaCrop model simulates final crop 
+    yield in four steps which consist on the simulation of development of green 
+    crop canopy cover, crop transpiration, above-ground biomass, and final crop 
+    yield. Temperature and water stresses directly affect one or more of the 
+    above processes. 
+    Nutrient deficiencies and salinity effects are simulated indirectly by 
+    moderating canopy cover development over the season, and by reducing crop
+    transpiration and the normalized water productivity. The effect of CO2 
+    concentration on biomass is simulated by altering the normalised water 
+    productivity. 
+    AquaCrop requires a relatively small number of explicit parameter values 
+    such as weather and soil propertiers, and crop management practices. 
+    Crop associated variables are normally known and are available for the 
+    majority of crops.
+Imports: XML, xml2, pracma, kulife, Rdpack, dplyr
+Depends: R (>= 3.5.1)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
+RdMacros: Rdpack

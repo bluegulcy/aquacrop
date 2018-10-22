@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<FileSetup>
+    <Input>input/</Input>
+    <Output>output/</Output>
+    <WeatherFilename>Weather.csv</WeatherFilename>
+    <CO2Filename>MaunaLoaCO2.csv</CO2Filename>
+    <ClockFilename>Clock.xml</ClockFilename>
+    <CropRotationFilename>CropRotation.xml</CropRotationFilename>
+    <FieldManagementFilename>FieldManagement.xml</FieldManagementFilename>
+    <InitialSWCFilename>InitialSoilWaterContent.xml</InitialSWCFilename>            <GroundwaterFilename>WaterTable.xml</GroundwaterFilename>
+    <SoilFilename>Soil.xml</SoilFilename>
+  <CropRotationCalendarFilename>CropRotationCalendar.xml</CropRotationCalendarFilename>
+</FileSetup>
