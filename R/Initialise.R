@@ -61,7 +61,7 @@ Initialise <- function(FileLocation){
   FileLoc <- FileLocation$Output
   # Setup blank matrices to store ouLatputs
   InitialiseStruct$Outputs$WaterContents <-
-    matrix(0, length(ClockStruct$TimeSpan), 5+ParamStruct$Soil$nComp)
+    matrix(0, length(ClockStruct$TimeSpan), 6+ParamStruct$Soil$nComp)
 
   InitialiseStruct$Outputs$WaterFluxes <- 
     matrix(0, length(ClockStruct$TimeSpan), 19)

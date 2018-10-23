@@ -223,7 +223,7 @@ Solution <- function(Weather, InitialiseStruct){
     # Water contents
     Outputs$WaterContents[row_day,4:ncol(Outputs$WaterContents)] <- 
       as.numeric(c(InitialiseStruct$ClockStruct$TimeStepCounter,
-        GrowingSeason, NewCond$th))
+        GrowingSeason, NewCond$th, PlantingDate))
     # Water fluxes
     Outputs$WaterFluxes[row_day, 4:ncol(Outputs$WaterFluxes)] <- 
       c(InitialiseStruct$ClockStruct$TimeStepCounter,
@@ -233,7 +233,7 @@ Solution <- function(Weather, InitialiseStruct){
     Outputs$CropGrowth[row_day,4:ncol(Outputs$CropGrowth)] <- 
       c(InitialiseStruct$ClockStruct$TimeStepCounter,
         GrowingSeason, GDD, NewCond$GDDcum, NewCond$Zroot, NewCond$CC, NewCond$CC_NS,
-        NewCond$B, NewCond$B_NS, NewCond$HI, NewCond$HIadj, NewCond$Y, PlantingDate, Et0)
+        NewCond$B, NewCond$B_NS, NewCond$HI, NewCond$HIadj, NewCond$Y, Et0, PlantingDate)
    
     
     # Final output (if at end of growing season)

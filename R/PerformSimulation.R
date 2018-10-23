@@ -15,20 +15,21 @@ PerformSimulation <- function(InitialiseStruct){
     wc_names[ii] <- paste(z,'m', sep='')
   }
   
-  wc_names <- c('Year','Month','Day','SimDay','Season', wc_names)
+  # Water content
+  wc_names <- c('Year','Month','Day','SimDay','Season', wc_names, 'PlantingDate')
   
   
-  #water fluxed
+  # Water Cluxes
   hy_names <- c('Year','Month','Day', 'SimDay','Season','wRZ','zGW','wSurf',
                 'Irr','Infl','RO','DP','CR', 'GWin','Es','EsX','Tr','TrX',
                 'PlantingDate')
   
   
-  # Crop growth (daily)
+  # Crop growth
   cg_names <- c('Year','Month','Day', 'SimDay','Season','GDD','TotGDD',
                 'Root Depth',
-                'CC','RefCC','Bio', 'RefBio','HI','HIadj','Yield','PlantingDate',
-                'Et0')
+                'CC','RefCC','Bio', 'RefBio','HI','HIadj','Yield','Et0', 
+                'PlantingDate')
   
   # # Final output (at end of each growing season)
   fo_names <- c('GSeason','Crop','PlantD', 'PlantSD','HarvestCD','HarvestSD',
@@ -70,16 +71,15 @@ PerformSimulation <- function(InitialiseStruct){
   colnames(Outputs$CropGrowth) <- cg_names
   colnames(Outputs$FinalOutput) <- fo_names
   
-  Outputs$CropGrowth <- data.frame(Outputs$CropGrowth)
-  Outputs$CropGrowth$PlantingDate <- 
-    as_date(Outputs$CropGrowth$PlantingDate)
-  
   Outputs$WaterContents <- data.frame(Outputs$WaterContents)
   Outputs$WaterFluxes <- data.frame(Outputs$WaterFluxes)
-  Outputs$WaterFluxes$PlantingDate <- 
-    as_date(Outputs$WaterFluxes$PlantingDate)
- 
+  Outputs$CropGrowth <- data.frame(Outputs$CropGrowth)
+  results = cbind(Outputs$WaterContents, Outputs$WaterFluxes,Outputs$CropGrowth)
   
-  return(Outputs)
+  
+  results = results[, c(1:17, 24:36, 43:54)]
+  results[['PlantingDate']] = as_date(results[['PlantingDate']])
+  
+  return(results)
 
 }

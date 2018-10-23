@@ -1,6 +1,6 @@
 #' OutputParameters to be provided in at the end of the simulation
-#' @format A data structure with the following four sublists will be provided as
-#' outputs of the simulation:
+#' @format A dataset with the following variables will be provided as
+#' output of the AquaCropR simulation:
 #' \describe{
 #'\item{Water contents output file}{The water contents list reports the simulated 
 #'water content (m3 m-3) in each soil compartment at the end of each simulation 
@@ -15,7 +15,7 @@
 #' \item{zGW}{Water table depth (m). A value of -999 indicates no groundwater 
 #' table was considered}
 #' \item{wSurf}{Ponded water (mm)}
-#' \item{Irr}{Irrigation (mm)}
+#' \item{Irr}{TotIrr (mm)}
 #' \item{Infl}{Infiltration (mm)}
 #' \item{DP}{Deep percolation below the base of the soil profile (mm)}
 #' \item{CR}{Capillary rise in to the soil profile (mm)}
@@ -24,10 +24,7 @@
 #' \item{EsX}{Potential soil evaporation (mm)}
 #' \item{Tr}{Crop transpiration (mm)}
 #' \item{TrX}{Potential crop transpiration (mm)}
-#' As previously noted, the variable 'Season' denotes whether a growing season 
-#' was active on a given day and values of zero are assigned to all 
-#' fluxes/states outside of the growing season if the off-season soil water 
-#' balance is not simulated.
+#' \item{Et0}{Reference Evapotranspiration (mm)}
 #'}
 #'}
 #' \item{Crop growth output file}{The crop growth output list reports various 
@@ -44,21 +41,15 @@
 #' \item{HI}{Fractional reference harvest index}
 #' \item{HIadj}{Fractional harvest index adjusted for water stress effects}
 #' \item{Yield}{Crop yield (tonne ha-1)}
+#' \item{PlantingDate}{Calendar planting date (dd/mm/yyyy)}
+#'}
 #'}
 #' As previously noted, the variable 'Season' denotes whether a growing season 
-#' was active on a given day.
-#'}
-#' \item{Final output file}{The final output list reports summaries and totals 
-#' of key simulated variables in each growing season, including:}
-#' \describe{
-#' \item{PlantD}{Calendar planting date (dd/mm/yyyy)}
-#' \item{PlantSD}{Simulation day of planting}
-#' \item{HarvestD}{Calendar harvest date (dd/mm/yyyy)}
-#' \item{HarvestSD}{Simulation day of harvesting}
-#' \item{Yield}{Final crop yield (tonne ha-1)}
-#' \item{TotIrr}{Total irrigation use (mm)}
-#'}
-#'}
+#' was active on a given day and values of zero are assigned to all 
+#' fluxes/states outside of the growing season if the off-season soil water 
+#' balance is not simulated.
+#' }
+
 
 
 OutputParameters <- function() { 
