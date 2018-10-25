@@ -22,10 +22,17 @@ ReadClockParameters <- function(FileLocation){
   ClockStruct$ModelTermination <- FALSE
   # Simulation start time as serial date number
   DateStaV <- as.Date(ClockStruct$SimulationStartTime, format="%Y-%m-%d")
+  if(is.na(DateStaV)) { print(paste('Error, revise date format:', 
+                                    ClockStruct$SimulationStartTime, sep = ' '))
+    break}
   
   ClockStruct$SimulationStartDate <- as_datenum(DateStaV)
   # Simulation end time as serial date number
   DateStoV <- as.Date(ClockStruct$SimulationEndTime,format="%Y-%m-%d")
+  if(is.na(DateStoV)) { print(paste('Error, revise date format:', 
+                                    ClockStruct$SimulationEndTime, sep = ' '))
+    break}
+  
   ClockStruct$SimulationEndDate <- as_datenum(DateStoV)
   # Time step (years)
   ClockStruct$TimeStep <- 1

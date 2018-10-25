@@ -11,6 +11,8 @@ library('AquaCropR')
 #FileLocation = ReadFileLocations('FileSetup.xml')
 FileLocation = ReadFileLocations('FileSetup_babycorn.xml')
 InitialiseStruct <- Initialise(FileLocation)
+
+
 Outputs <- PerformSimulation(InitialiseStruct)
 Outputs$PlantingDate <- as.factor(Outputs$PlantingDate)
 Outputs <- subset(Outputs, PlantingDate != '0000-01-01')

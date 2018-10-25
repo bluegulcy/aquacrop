@@ -35,6 +35,7 @@ PerformSimulation <- function(InitialiseStruct){
   fo_names <- c('GSeason','Crop','PlantD', 'PlantSD','HarvestCD','HarvestSD',
                 'Yield','TotIrr')
   
+  i = 1
   ## Get weather inputs for current time step ##
   #for(i in 1:12){
   while(InitialiseStruct$ClockStruct$ModelTermination == FALSE){
@@ -60,8 +61,8 @@ PerformSimulation <- function(InitialiseStruct){
       UT <- UpdateTime(InitialiseStruct$ClockStruct, InitialiseStruct)
       InitialiseStruct <- UT$InitialiseStruct
       InitialiseStruct$ClockStruct <- UT$ClockStruct
-      #i = i+1
-      #print(i)
+      i = i+1
+      print(i)
       
   }
   

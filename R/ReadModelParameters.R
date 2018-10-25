@@ -72,13 +72,14 @@ ReadModelParameters <- function(FileLocation, ClockStruct){
         # Load data
         DataArray <- check_file_exist(filename)
         # Extract data
-        # Cnage strings to Date format
+        # Change strings to Date format
         PlantDates <- as_datenum(as.Date(DataArray$PlantDate, "%d/%m/%Y"))
         HarvestDates <- as_datenum(as.Date(DataArray$HarvestDate, "%d/%m/%Y"))
         CropChoices <- DataArray$Crop
 
 
     } else if (nCrops == 1){
+        print('hello')
         # Only one crop type considered during simulation - i.e. no rotations
         # either within or between years
         # Get start and end years for full simulation
