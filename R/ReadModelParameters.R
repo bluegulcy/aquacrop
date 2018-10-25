@@ -79,7 +79,7 @@ ReadModelParameters <- function(FileLocation, ClockStruct){
 
 
     } else if (nCrops == 1){
-        print('hello')
+       
         # Only one crop type considered during simulation - i.e. no rotations
         # either within or between years
         # Get start and end years for full simulation

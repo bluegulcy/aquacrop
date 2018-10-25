@@ -40,12 +40,12 @@ ReadIrrigationManagement <- function(ParamStruct, FileLocation, ClockStruct){
           # Load data
 
           filename <- paste(Location, DataArray[['IrrSchFilename']], sep ='')
-          DataArray <- check_xml_table_exist(filename)
+          DataArray <- check_file_exist(filename)
 
           # Extract data
-          IrrEvents <- DataArray$Irrigation.mm.
+          IrrEvents <- DataArray$irrigation
           # Convert dates to serial date format
-          IrrDates <- paste(DataArray$Year, DataArray$Month, DataArray$Day, sep='-')
+          IrrDates <- paste(DataArray$year, DataArray$month, DataArray$day, sep='-')
           IrrDates <- as.vector(sapply(IrrDates, function(x) as_datenum(as.Date(x, "%Y-%m-%d"))))
           # Create full time series
           StartDate <- ClockStruct$SimulationStartDate
