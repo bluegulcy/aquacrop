@@ -290,3 +290,16 @@ calculate_sowingdate <- function(weather_data, start_date, thr = 5,
         row.names = FALSE, quote = FALSE)
   return(sowing_dates)
 }
+
+# convert to DOY
+#' @param fdate date
+#' @return DOY
+#' @example 
+#' convertDOY('01-01-2000')
+
+convertDOY = function(fdate)
+{
+ 
+  return(strftime(fdate, format = "%j"))
+  
+}

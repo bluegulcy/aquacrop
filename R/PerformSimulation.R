@@ -80,6 +80,7 @@ PerformSimulation <- function(InitialiseStruct){
   
   results = results[, c(1:17, 24:36, 43:54)]
   results[['PlantingDate']] = as_date(results[['PlantingDate']])
+  results <- setDT(results)
   
   return(results)
 
