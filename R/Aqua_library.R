@@ -238,7 +238,7 @@ get_day <- function(x){0
   
 }
 
-#' calculate_sowingdate
+#' calculate sowingdate
 
 #' @param weather_data weather data
 #' @param start_date start window 'dd/mm'
@@ -291,12 +291,11 @@ calculate_sowingdate <- function(weather_data, start_date, thr = 5,
   return(sowing_dates)
 }
 
-# convert to DOY
+#' convert to DOY
 #' @param fdate date
 #' @return DOY
 #' @example 
 #' convertDOY('01-01-2000')
-
 convertDOY = function(fdate)
 {
  
