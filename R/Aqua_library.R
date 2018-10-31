@@ -168,6 +168,28 @@ convert_list_2numeric <- function(slist, lnames = NULL){
 }
 
 
+#' convert list values to numeric
+#' @param slist list
+#' @param lnames field names to transform
+#' FIXME: do it for subsets
+#'
+convert_table_list_2numeric <- function(slist, lnames = NULL){
+  
+  if(is.null(lnames)){
+    
+    lnames <- names(slist)
+    
+  }
+  
+  for(lname in lnames){
+    
+    slist[[lname]] <- as.numeric(as.character(slist[[lname]]))
+  }
+  
+  return(slist)
+  
+}
+
 
 #' calculate Water vapour pressure (Kpa) according to FAO
 #' @param x list with three parameters x[[1]] = RH, x[[2]] = TMAX, x[[3]] = TMIN
@@ -300,5 +322,197 @@ convertDOY = function(fdate)
 {
  
   return(strftime(fdate, format = "%j"))
+  
+}
+
+
+#' get stefan Boltzmann temp
+#' @param t temperature
+#' @return temperature
+#' examples
+#' get_stefan_Boltzmann(14.88)
+#' 
+get_stefan_Boltzmann <- function(t){
+  
+  x <- seq(1, 48.5, by=0.5)
+  y <- c(27.7, 27.9,  28.11,  28.31,
+         28.52,  28.72,  28.93, 29.14,  29.35,  29.56,  29.78,  29.99,  30.21,  30.42,  
+         30.64,  30.86,  31.08, 31.3,  31.52,  31.74,  31.97,  32.19,  32.42,  32.65,  
+         32.88,  33.11,  33.34, 33.57,  33.81,  34.04,  34.28,  34.52,  34.75,  34.99,  
+         35.24,  35.48,  35.72, 35.97,  36.21,  36.46,  36.71,  36.96,  37.21,  37.47,
+         37.72,  37.98,  38.23, 38.49,  38.75,  39.01,  39.27,  39.53,  39.8,  40.06, 
+         40.33,  40.6,  40.87, 41.14,  41.41,  41.69,  41.96, 42.24,  42.52,  42.8,  
+         43.08,  43.36,  43.64,  43.93,  44.21,  44.5,  44.79, 45.08,  45.37,  45.67,  
+         45.96,  46.26,  46.56, 46.85,  47.15,  47.46,  47.76,  48.06,  48.37,  48.68,  
+         48.99,  49.3, 49.61, 49.92,  50.24, 50.56, 50.87, 51.19, 51.51, 51.84, 52.16,52.49)
+  
+  return(approx(x, y, t)$y)
+  
+}
+
+#' Calculate actual vapor pressure (ea) derived from dewpoint temperature
+#' @param Tdew Dewpoint temperature (oC)
+#' @return ea
+#' @examples
+#' get_ea_dp(14.65)
+
+get_ea_dp <- function(Tdew){
+  
+  Vpa <- 0.6108
+  Vpt <- 17.27
+  Vp3 <- 237.3
+ 
+  #Actual vapour pressure derived from dewpoint temperature
+  ea <- Vpa * exp((Vpt * Tdew) / (Tdew + Vp3))
+  return(ea)
+  
+}
+
+#' Calculate actual vapor pressure (ea) derived from mean relative humidity
+#' @param rh relative humidity (%)
+#' @param eoTmax saturation vapour Tmax
+#' @param eoTmin saturation vapour Tmin
+#' @return ea 
+#' @examples
+#' get_ea_rh(57.44)
+
+get_ea_rh <- function(rh, eoTmax, eoTmin){
+  
+  #Actual vapour pressure derived from dewpoint temperature
+  ea <- rh/100 * (((eoTmax + eoTmin))/2)
+  return(ea)
+  
+}
+
+#' Calculate atmospheric pressure (P)
+#' @param z  elevation above sea level [m]
+#' @return P atmospheric pressure [kPa]
+#' @examples 
+#' get_atmospheric_pressure(1800)
+
+get_atmospheric_pressure <- function(z){
+  
+  P	<- 101.3*((293 - (0.0065)*z)/293)^5.26
+  return(P)
+}
+
+
+#' Slope of saturation vapour pressure curve
+#' @param Tmean mean temperature (oC)
+#' @return delta  Slope of saturation vapour pressure curve T [kPa °C-1]
+#' @examples 
+#' get_slope_saturation_vp(1800)
+get_slope_saturation_vp <- function(Tmean){
+  
+  Vpa <- 0.6108
+  Vp3 <- 237.3
+  
+  delta <- (4098 * (Vpa *exp((17.2 * Tmean) / (Tmean + Vp3)))) /
+    (Tmean + Vp3)^2
+  return(delta)
+  
+}
+
+
+#' Calculate net radiation mm/day
+#' @param Tmax max temperature
+#' @param Tmin min temperature
+#' @param RA solar radiation, all Sky Insolation Incident on a Horizontal 
+#' Surface (MJ/m^2/day) 
+#' @param altitude (m)
+#' @return rn_mm_day mm/day
+#' @examples
+#' get_net_radiation(29.5, 18.88, 27.47, 83.64)
+
+get_net_radiation <- function(Tmax, Tmin, RA, altitude){
+  
+  # constants
+  alpha <- 0.23 # canopy reflection coefficient
+  lambda	<- 0.48 # latent heat heat of vaporization
+  
+  
+  rs <- 0.16 * sqrt(Tmax - Tmin) * RA
+  rso <- (0.75+2 * altitude/100000) * RA
+  rs_rso <- rs/rso
+  cloudiness <- 1.35*rs_rso - 0.35 
+  rns <- rs * (1 - alpha)
+  Tmink_Tmaxk <- (get_stefan_Boltzmann(Tmax) + get_stefan_Boltzmann(Tmin))/2
+  
+  rnl <- Tmink_Tmaxk * easqrt * cloudiness
+  rn <- rns - rnl
+  # Net radiation in MJ m-2 day-1
+  rn <- rn - G
+  # Net radiation mm/day
+  rn_mm_day <- lambda * (rn)
+  
+  return(rn_mm_day)
+  
+  
+  
+}
+
+#' Calculate ETo using Penman_Monteith
+#' @param Tmax max temperature
+#' @param Tmin min temperature
+#' @param RA solar radiation, all Sky Insolation Incident on a Horizontal Surface (MJ/m^2/day) 
+#' @param Wind wind Speed at 2 Meters (m/s) 
+#' @param Tdew dew point at 2 Meters (C) 
+#' @param altitude (m)
+#' @example
+#' get_Eto(29.5, 18.88, 27.47, 4.15, 14.65, 83.64)
+
+get_Eto  <- function(Tmax, Tmin, RA, Wind, Tdew, altitude){
+  
+  # Tmax <- 29.5
+  # Tmin <- 18.88
+  # RA <- 27.47
+  # Wind <- 4.15
+  # Tdew <- 14.65
+  # altitude <- 83.64
+
+  # Constants 
+  G <- 0
+  Vpa <- 0.6108
+  Vpt <- 17.27
+  Vp3 <- 237.3
+  vp4 <- 273
+  
+  Tmean <- (Tmax + Tmin)/2
+  # Atmospheric pressure
+  P	<- get_atmospheric_pressure(altitude)
+  # gamma - Psychrometric constant 
+  gamma = 0.665*10^-3 * P
+  # Slope of saturation vapour pressure curve
+  delta <- get_slope_saturation_vp(Tmean)
+  
+  # saturation vapour
+  eoTmax <-  Vpa * exp((Vpt * Tmax)/ (Tmax + Vp3))
+  eoTmin <-  Vpa * exp((Vpt * Tmin)/ (Tmin + Vp3))
+  
+  # Mean saturation vapor pressure
+  es <- (eoTmax + eoTmin)/ 2
+  
+  #Actual vapour pressure derived from dewpoint temperature
+  ea <- get_ea_dp(Tdew)
+  
+  easqrt <- 0.34 - 0.14 * sqrt(ea)
+  # Vapour pressure deficit
+  vpd <- es - ea
+  
+  L900T <- 900/(Tmean + vp4)*Wind
+  deltadelta <- delta  / (delta + (gamma*(1 + (0.34 * Wind))))
+  gammadelta <- gamma  / (delta + (gamma*(1 + (0.34 * Wind))))
+  
+  ## Net Radiation
+  
+  rn_mm_day <- get_net_radiation(Tmax, Tmin, RA, altitude)
+  
+  ## Eto
+  
+  s1 <- Rd_mm_day * deltadelta
+  s2 <- L900T * vpd *  gammadelta
+  Eto <- s1 + s2
+  
+  return(Eto)
   
 }

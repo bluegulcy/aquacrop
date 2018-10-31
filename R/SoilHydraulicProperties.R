@@ -14,7 +14,7 @@ SoilHydraulicProperties <- function(Soil){
 ## Calculate soil hydraulic properties ##
 # Initialise values
 
-      thdry = thwp = hfc = ths = ksat <- rep(0, Soil$nLayer)
+      thdry = thwp = hfc = ths = thfc = ksat <- rep(0, Soil$nLayer)
 
       # Do calculations for each soil layer
       for(ii in 1:Soil$nLayer){
@@ -56,7 +56,7 @@ SoilHydraulicProperties <- function(Soil){
 
           # Saturated hydraulic conductivity (mm/day)
           lambda <- 1/((log(1500)-log(33))/(log(thfc[ii])-log(thwp[ii])))
-          ksat[ii] <- (1930*(ths[ii]-thfc[ii])^(3-lambda))*24
+          ksat[ii] <- (1930*(ths[ii] - thfc[ii])^(3-lambda))*24
 
           # Water content at air dry
           thdry[ii] <- thwp[ii]/2
@@ -72,9 +72,9 @@ SoilHydraulicProperties <- function(Soil){
       cc <- list()
       cc$thdry <- thdry
       cc$thwp <- thwp
-      cc$hfc <- hfc
+      cc$thfc <- thfc
       cc$ths <- ths
-      cc$ksa <- ksa
+      cc$ksat <- ksat
       
       return(cc)
 }

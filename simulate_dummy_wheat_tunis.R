@@ -5,8 +5,8 @@ library('pracma')
 library('kulife')
 library('ggplot2')
 library('reshape')
-library('AquaCropR')
-
+#library('AquaCropR')
+break()
 folder_names = dir(pattern='input_*')
 for(folder_name in folder_names){
  

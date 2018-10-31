@@ -98,7 +98,7 @@ Solution <- function(Weather, InitialiseStruct){
           NewCond <- GD$NewCond
       
       
-      ## NOPE
+
           # 5. Irrigation
           GD <- Irrigation(NewCond, IrrMngt, Crop, Soil, InitialiseStruct$ClockStruct, 
                            GrowingSeason, P, Runoff)

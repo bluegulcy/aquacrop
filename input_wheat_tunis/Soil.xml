@@ -3,10 +3,10 @@
  	<SoilProfileFilename>SoilProfile.xml</SoilProfileFilename>
     	<SoilTextureFilename>SoilTexture.xml</SoilTextureFilename>
     	<SoilHydrologyFilename>SoilHydrology.xml</SoilHydrologyFilename>
-	<CalcSHP>0</CalcSHP>
+	<CalcSHP>1</CalcSHP>
 	<zSoil>1.9</zSoil>
 	<nComp>12</nComp>
-	<nLayer>1</nLayer>
+	<nLayer>2</nLayer>
 	<EvapZsurf>0.04</EvapZsurf>
 	<EvapZmin>0.15</EvapZmin>
 	<EvapZmax>0.3</EvapZmax>

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soiltexture>
+<table>
+   <tr>
     <LayerNo>1</LayerNo>
-    <Thickness>2.3</Thickness>
-    <Sand>42</Sand>
-    <Clay>18</Clay>
-    <OrgMat>2.50</OrgMat>
+    <Thickness>0.3</Thickness>
+    <Sand>60</Sand>
+    <Clay>30</Clay>
+    <OrgMat>1.5</OrgMat>
     <DensityFactor>1</DensityFactor>
-</soiltexture>
+   </tr>
+   <tr>
+    <LayerNo>2</LayerNo>
+    <Thickness>1.7</Thickness>
+    <Sand>20</Sand>
+    <Clay>10</Clay>
+    <OrgMat>3</OrgMat>
+    <DensityFactor>1</DensityFactor>
+   </tr>
+</table>
+
 

@@ -16,7 +16,7 @@ ComputeVariables <- function(ParamStruct, Weather, ClockStruct, GwStruct, CropCh
         # Read soil texture file
         filename <- paste(FileLocation[['Input']],
                           ParamStruct$Soil[['SoilHydrologyFilename']], sep='')
-        DataArray <- convert_list_2numeric(check_xml_exist(filename))
+        DataArray <- convert_table_list_2numeric(check_xml_table_exist(filename))
         # Assign data
         ParamStruct$Soil$Layer$dz <- DataArray$LayerThickness
         ParamStruct$Soil$Layer$th_s <- DataArray$thS
@@ -25,11 +25,11 @@ ComputeVariables <- function(ParamStruct, Weather, ClockStruct, GwStruct, CropCh
         ParamStruct$Soil$Layer$Ksat <- DataArray$Ksat
         # Calculate additional variables
         ParamStruct$Soil$Layer$th_dry <- ParamStruct$Soil$Layer$th_wp/2
-    } else if (ParamStruct$Soil$CalcSHP == 1){
+    } else if(ParamStruct$Soil$CalcSHP == 1){
         # Read soil texture file
         filename <- paste(FileLocation[['Input']], ParamStruct$Soil
                           [['SoilTextureFilename']], sep='')
-        DataArray <- convert_list_2numeric(check_xml_exist(filename))
+        DataArray <- convert_table_list_2numeric(check_xml_table_exist(filename))
 
         # Create soil dz vector
         ParamStruct$Soil$Layer$dz <- DataArray$Thickness
@@ -37,12 +37,11 @@ ComputeVariables <- function(ParamStruct, Weather, ClockStruct, GwStruct, CropCh
         ParamStruct$Soil$Layer$Clay <-  DataArray$Clay/100
         ParamStruct$Soil$Layer$OrgMat <-  DataArray$OrgMat
         ParamStruct$Soil$Layer$DF <-  DataArray$DensityFactor
+        
         # Calculate soil hydraulic properties using pedotransfer function
         # method (Saxton et al., 2006)
-        #[thdry,thwp,thfc,ths,ksat]
 
-
-        SHcP<- SoilHydraulicProperties(ParamStruct$Soil)
+        SHcP <- SoilHydraulicProperties(ParamStruct$Soil)
         thdry <- SHcP$thdry
         thwp <- SHcP$thwp
         thfc <- SHcP$thfc
@@ -161,7 +160,7 @@ ComputeVariables <- function(ParamStruct, Weather, ClockStruct, GwStruct, CropCh
     # Use properties of top soil layer
     xi <- c(ParamStruct$Soil$Layer$th_wp[1], ((ParamStruct$Soil$Layer$th_fc[1] +
         ParamStruct$Soil$Layer$th_wp[1])/2), ParamStruct$Soil$Layer$th_fc[1])
-    yi <- c(ParamStruct$Soil$CNbot,ParamStruct$Soil$CN,ParamStruct$Soil$CNtop)
+    yi <- c(ParamStruct$Soil$CNbot, ParamStruct$Soil$CN, ParamStruct$Soil$CNtop)
 
         # FIXME = check equations
     ParamStruct$Soil$CNf <- pchip(xi,yi, x=seq(xi[1], xi[length(xi)], by = 0.01))
