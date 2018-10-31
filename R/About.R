@@ -37,9 +37,6 @@
 #'<InitialWCFilename>InitialWaterContent.xml</InitialWCFilename>
 #'<GroundwaterFilename>WaterTable.xml</GroundwaterFilename> 
 #'<SoilFilename>Soil.xml</SoilFilename>
-#'<SoilProfileFilename>SoilProfile.xml</SoilProfileFilename>
-#'<SoilTextureFilename>SoilTexture.xml</SoilTextureFilename>
-#'<SoilHydrologyFilename>SoilHydrology.xml</SoilHydrologyFilename>
 #'<CropRotationCalendarFilename>CropRotationCalendar.xml</CropRotationCalendarFilename>
 #'</FileSetup>
 
