@@ -316,7 +316,7 @@ calculate_sowingdate <- function(weather_data, start_date, thr = 5,
 #' convert to DOY
 #' @param fdate date
 #' @return DOY
-#' @example 
+#' @examples
 #' convertDOY('01-01-2000')
 convertDOY = function(fdate)
 {
@@ -369,7 +369,7 @@ get_ea_dp <- function(Tdew){
 }
 
 #' Calculate actual vapor pressure (ea) derived from mean relative humidity
-#' @param rh relative humidity (%)
+#' @param rh relative humidity (\%)
 #' @param eoTmax saturation vapour Tmax
 #' @param eoTmin saturation vapour Tmin
 #' @return ea 
@@ -385,8 +385,8 @@ get_ea_rh <- function(rh, eoTmax, eoTmin){
 }
 
 #' Calculate atmospheric pressure (P)
-#' @param z  elevation above sea level [m]
-#' @return P atmospheric pressure [kPa]
+#' @param z  elevation above sea level (m)
+#' @return P atmospheric pressure (kPa)
 #' @examples 
 #' get_atmospheric_pressure(1800)
 
@@ -399,7 +399,7 @@ get_atmospheric_pressure <- function(z){
 
 #' Slope of saturation vapour pressure curve
 #' @param Tmean mean temperature (oC)
-#' @return delta  Slope of saturation vapour pressure curve T [kPa °C-1]
+#' @return delta  Slope of saturation vapour pressure curve T(kPa oC-1)
 #' @examples 
 #' get_slope_saturation_vp(1800)
 get_slope_saturation_vp <- function(Tmean){
@@ -420,16 +420,17 @@ get_slope_saturation_vp <- function(Tmean){
 #' @param RA solar radiation, all Sky Insolation Incident on a Horizontal 
 #' Surface (MJ/m^2/day) 
 #' @param altitude (m)
+#' @param easqrt sqrt(ea)
 #' @return rn_mm_day mm/day
 #' @examples
 #' get_net_radiation(29.5, 18.88, 27.47, 83.64)
 
-get_net_radiation <- function(Tmax, Tmin, RA, altitude){
+get_net_radiation <- function(Tmax, Tmin, RA, altitude, easqrt){
   
   # constants
   alpha <- 0.23 # canopy reflection coefficient
   lambda	<- 0.48 # latent heat heat of vaporization
-  
+  G <- 0
   
   rs <- 0.16 * sqrt(Tmax - Tmin) * RA
   rso <- (0.75+2 * altitude/100000) * RA
@@ -452,26 +453,23 @@ get_net_radiation <- function(Tmax, Tmin, RA, altitude){
 }
 
 #' Calculate ETo using Penman_Monteith
-#' @param Tmax max temperature
-#' @param Tmin min temperature
-#' @param RA solar radiation, all Sky Insolation Incident on a Horizontal Surface (MJ/m^2/day) 
-#' @param Wind wind Speed at 2 Meters (m/s) 
-#' @param Tdew dew point at 2 Meters (C) 
-#' @param altitude (m)
-#' @example
-#' get_Eto(29.5, 18.88, 27.47, 4.15, 14.65, 83.64)
+#' @param x weather parameters Tmax = x[[1]],  Tmax <- x[[1]], Tmin <- x[[2]],
+#' RA <- x[[3]], Wind <- x[[4]], Tdew <- x[[5]], altitude <- x[[6]] =  max temperature
+#' @examples 
+#' get_Eto(x)
 
-get_Eto  <- function(Tmax, Tmin, RA, Wind, Tdew, altitude){
+get_Eto <- function(x){
+
   
-  # Tmax <- 29.5
-  # Tmin <- 18.88
-  # RA <- 27.47
-  # Wind <- 4.15
-  # Tdew <- 14.65
-  # altitude <- 83.64
-
+  Tmax <- x[[1]]
+  Tmin <- x[[2]]
+  RA <- x[[3]]
+  Wind <- x[[4]]
+  Tdew <- x[[5]]
+  altitude <- x[[6]]
+  
   # Constants 
-  G <- 0
+
   Vpa <- 0.6108
   Vpt <- 17.27
   Vp3 <- 237.3
@@ -505,11 +503,11 @@ get_Eto  <- function(Tmax, Tmin, RA, Wind, Tdew, altitude){
   
   ## Net Radiation
   
-  rn_mm_day <- get_net_radiation(Tmax, Tmin, RA, altitude)
+  rn_mm_day <- get_net_radiation(Tmax, Tmin, RA, altitude, easqrt)
   
   ## Eto
   
-  s1 <- Rd_mm_day * deltadelta
+  s1 <- rn_mm_day * deltadelta
   s2 <- L900T * vpd *  gammadelta
   Eto <- s1 + s2
   
