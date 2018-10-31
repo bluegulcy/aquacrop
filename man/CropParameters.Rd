@@ -6,7 +6,7 @@
 \format{A file in xml format should be provided with the following fields. 
 Guidance on appropriate
 parameter values for different crop types can be obtained from the FAO 
-AquaCrop manual \insertCite{Vanuytrecht2014,Raes2009}{AquaCropR}.\insertRef{Vanuytrecht2014,Raes2009}{AquaCropR}
+AquaCrop manual \insertCite{Vanuytrecht2014,Raes2009}{AquaCropR}.
 \describe{
 \item{CropType}{Determines the category of crop  Units: -  Default value: 
 1 = Leafy vegetable; 2 = Root/tuber; 3 = Fruit/grain}
