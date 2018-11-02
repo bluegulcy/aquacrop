@@ -13,7 +13,7 @@ library('AquaCropR')
 
 folder_names = dir(pattern='input_*')
 
-folder_name = folder_names[1]
+folder_name = folder_names[4]
 for(folder_name in folder_names){
   
     FileLocation = ReadFileLocations(paste(folder_name,'/', 'filesetup.xml', sep=''))
