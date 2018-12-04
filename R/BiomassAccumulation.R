@@ -1,4 +1,4 @@
-#' Calculate biomass accumulation
+#' Calculate biomass accumulation (g m-2)
 #' @param Crop Parameters for a given crop
 #' @param InitCond Crop setting initial structure
 #' @param Tr actual transpiration

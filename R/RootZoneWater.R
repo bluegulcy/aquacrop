@@ -73,13 +73,14 @@ RootZoneWater <- function(Soil, Crop, InitCond){
     thRZ$Aer <- WrAer/(rootdepth*1000)
 
     ## Calculate total available water (mm) ##
-    TAW <- WrFC-WrWP
+    TAW <- WrFC - WrWP
     if (TAW < 0){
         TAW <- 0
     }
 
     ## Calculate depletion (mm) ##
-    Dr <- WrFC-Wr
+    Dr <- WrFC - Wr
+    
     if (Dr < 0){
         Dr <- 0
     }

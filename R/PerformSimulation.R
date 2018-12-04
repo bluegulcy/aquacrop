@@ -19,7 +19,7 @@ PerformSimulation <- function(InitialiseStruct){
   wc_names <- c('Year','Month','Day','SimDay','Season', wc_names, 'PlantingDate')
   
   
-  # Water Cluxes
+  # Water Fluxes
   hy_names <- c('Year','Month','Day', 'SimDay','Season','wRZ','zGW','wSurf',
                 'Irr','Infl','RO','DP','CR', 'GWin','Es','EsX','Tr','TrX',
                 'PlantingDate')
@@ -37,9 +37,10 @@ PerformSimulation <- function(InitialiseStruct){
   
   #i = 1
   ## Get weather inputs for current time step ##
- 
+  #for(i in 1:14){
   while(InitialiseStruct$ClockStruct$ModelTermination == FALSE){
 
+      #print(i)
       Weather <- ExtractWeatherData(InitialiseStruct)
       #print(as_date(Weather$Dates))
       
@@ -61,8 +62,8 @@ PerformSimulation <- function(InitialiseStruct){
       UT <- UpdateTime(InitialiseStruct$ClockStruct, InitialiseStruct)
       InitialiseStruct <- UT$InitialiseStruct
       InitialiseStruct$ClockStruct <- UT$ClockStruct
-      # i = i+1
-      # print(i)
+      #print(InitialiseStruct$InitialCondition$CropDead)
+      #i = i+1
       
   }
   

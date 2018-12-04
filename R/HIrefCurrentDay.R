@@ -19,7 +19,7 @@ HIrefCurrentDay <- function(InitCond, Crop, GrowingSeason){
     if (GrowingSeason == TRUE){
         # Check if in yield formation period
         if(Crop$CalendarType == 1){
-            tAdj <- NewCond$DAP-NewCond$DelayedCDs
+            tAdj <- NewCond$DAP - NewCond$DelayedCDs
         } else if (Crop$CalendarType == 2){
             tAdj <- NewCond$GDDcum - NewCond$DelayedGDDs
         }
@@ -72,7 +72,7 @@ HIrefCurrentDay <- function(InitCond, Crop, GrowingSeason){
                             (Crop$HI0-Crop$HIini)*exp(-Crop$HIGC*Crop$tLinSwitch))
                         # Calculate reference harvest index for current day
                         # (total - logistic portion + linear portion)
-                        NewCond$HIref <- NewCond$HIref+(Crop$dHILinear*
+                        NewCond$HIref <- NewCond$HIref + (Crop$dHILinear*
                             (HIt-Crop$tLinSwitch))
                     }
 
@@ -80,10 +80,13 @@ HIrefCurrentDay <- function(InitCond, Crop, GrowingSeason){
                 # Limit HIref and round off computed value
                 if (NewCond$HIref > Crop$HI0){
                     NewCond$HIref <- Crop$HI0
+                    #print(paste('1', NewCond$HIref))
                 } else if (NewCond$HIref <= (Crop$HIini+0.004)){
                     NewCond$HIref <- 0
-                } else if ((Crop$HI0-NewCond$HIref)<0.004){
+                    #print(paste('2', NewCond$HIref))
+                } else if ((Crop$HI0-NewCond$HIref) < 0.004){
                     NewCond$HIref <- Crop$HI0
+                    #print(paste('3', NewCond$HIref))
                 }
             }
         }

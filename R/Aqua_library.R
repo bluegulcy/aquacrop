@@ -98,7 +98,7 @@ as_datenum_string <- function(x){
   
   
   y = as.Date(paste(x['year'], x['month'], x['day'], sep='-'), format="%Y-%m-%d")
-  n = as.numeric(y - as.Date('0000-01-01',"%Y-%m-%d") + 1)
+  n = as.numeric(y - as.Date('0000-01-01',"%Y-%m-%d"))
   return(n)
   
 }
@@ -271,45 +271,64 @@ get_day <- function(x){0
 #' @param year_list year to be analysed
 #' @param Crop crop name
 #' @param ccl crop calendar length
-calculate_sowingdate <- function(weather_data, start_date, thr = 5,
+#' @example
+#' w <- calculate_sowingdate(weather_data, start_date = '01/10', end_date = '31/12', thr = 5,
+#day = 'day', month='month', year='year', P = 'p', year_list, Crop = 'Wheat',
+#ccl = 180)
+
+calculate_sowingdate <- function(weather_data, start_date, end_date, thr = 5,
                                  day, month, year, P, year_list, Crop,
-                                 ccl = 100 ){
+                                 ccl = 100){
   
   
   weather_data <- setDT(weather_data)
-  dayn = strsplit(start_date, '/')[[1]][1]
-  monthn = strsplit(start_date, '/')[[1]][2]
-  sowing_dates = c()
- 
-  for(cname in year_list){
-
-    i = intersect(intersect(which(weather_data[[day]] == as.numeric(dayn)),
-                  which(weather_data[[month]] == as.numeric(monthn))),
-                  which(weather_data[[year]] == cname))
-    iv <- i
-    s <- 0
-    while(s < 30 & i <= iv+60){
-      
-      s <- sum(weather_data[[P]][i:(i+4)])
+  days = as.numeric(strsplit(start_date, '/')[[1]][1])
+  months = as.numeric(strsplit(start_date, '/')[[1]][2])
+  dayf = as.numeric(strsplit(end_date, '/')[[1]][1])
+  monthf = as.numeric(strsplit(end_date, '/')[[1]][2])
   
-      i = i + 1
-    }
+  sowing_dates = c()
+  
+  for(cname in year_list){
+  
+      s  <- intersect(intersect(which(weather_data[[days]] == days),
+                  which(weather_data[[month]] == months)),
+                  which(weather_data[[year]] == cname))
+      
+      f  <- intersect(intersect(which(weather_data[[day]] == dayf),
+                                which(weather_data[[month]] == monthf)),
+                      which(weather_data[[year]] == cname))
     
-    if(is.na(s)){
-     
-      i = iv
-    } 
+      iv <- s
+      raincum <- 0
+      while(raincum < 35 & s != f){ # until end date
+        
+        if(weather_data[[P]][s] == 0 & raincum != 0 ){
+          
+           raincum <- 0
+          
+        } else {
+          
+          raincum <- weather_data[[P]][s] + raincum
+        }
+        s = s + 1
+        
+        print(paste(raincum, weather_data[[P]][s], sep = ':'))
+      }
+      
+      if(s == f){
+        s = iv
+      } 
        
-      PlantDate <- paste(weather_data[[day]][i], weather_data[[month]][i], 
-                  weather_data[[year]][i], sep = '/')
-      HarvestDate <- paste(weather_data[[day]][i + ccl], weather_data[[month]][i + ccl], 
-                  weather_data[[year]][i+ ccl], sep = '/')
+      PlantDate <- paste(weather_data[[day]][s], weather_data[[month]][s], 
+                  weather_data[[year]][s], sep = '/')
+      HarvestDate <- paste(weather_data[[day]][s + ccl], weather_data[[month]][s + ccl], 
+                  weather_data[[year]][s + ccl], sep = '/')
       sowing_dates <- rbind(sowing_dates, cbind(PlantDate, HarvestDate, Crop))
     
    
   }
-  write.table(sowing_dates, file='CropRotationCalendar.csv', sep=',',
-        row.names = FALSE, quote = FALSE)
+  
   return(sowing_dates)
 }
 

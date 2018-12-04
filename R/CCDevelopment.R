@@ -29,7 +29,7 @@ CCDevelopment <- function(CCo, CCx, CGC, CDC, dt, Mode){
         if (CC > CCx){
             CC <- CCx
         }
-    } else if (strcmp(Mode,'Decline')){
+    } else if (Mode == 'Decline'){
         # Calculate canopy decline
         if (CCx < 0.001){
             CC <- 0

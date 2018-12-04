@@ -66,24 +66,27 @@ Solution <- function(Weather, InitialiseStruct){
         NewCond$GDDcum <- 0
     }
     
+    
+    
     Outputs <- InitialiseStruct$Outputs
     row_day <- InitialiseStruct$ClockStruct$TimeStepCounter
     row_gs <- InitialiseStruct$ClockStruct$SeasonCounter
 
+   
     if(GrowingSeason == TRUE){
+      
           ## Run simulations ##
           # 1. Check for groundwater table
           NewCond <- CheckGroundwaterTable(Soil, Groundwater, NewCond, 
                                            InitialiseStruct$ClockStruct)
       
           # 2. Pre-irrigation #
-      ## NOPE
+      
           GD <- PreIrrigation(Soil, Crop, IrrMngt, NewCond)
           NewCond <- GD$NewCond
           PreIrr <- GD$PreIrr
-          # 3. Drainage
       
-      
+            # 3. Drainage
           GD <- Drainage(Soil, NewCond)
           NewCond <- GD$NewCond
           DeepPerc <- GD$DeepPerc
@@ -105,7 +108,7 @@ Solution <- function(Weather, InitialiseStruct){
           NewCond <- GD$NewCond
           Irr <- GD$Irr
       
-      # NOPE
+      
           # 6. Infiltration
           GD <- Infiltration(Soil, NewCond, Infl, Irr, IrrMngt, FieldMngt, FluxOut, 
                              DeepPerc, Runoff)
@@ -121,25 +124,23 @@ Solution <- function(Weather, InitialiseStruct){
           GD <- CapillaryRise(Soil,Groundwater,NewCond,FluxOut)
           NewCond <- GD$NewCond
           CR <- GD$CrTot
-          # 8. Check germination
-      
-      
+         
+           # 8. Check germination
           NewCond <- Germination(NewCond,Soil,Crop,GDD,GrowingSeason)
       
-      ## NOPE
+      
           # 9. Update growth stage
           NewCond <- GrowthStage(Crop, NewCond, GrowingSeason)
       
-      # NOPE
+         
           # 10. Root development
           NewCond <- RootDevelopment(Crop, Soil,Groundwater, NewCond, 
                                      GDD, GrowingSeason)
       
-      # NOPE
           # 11. Canopy cover development
           NewCond <- CanopyCover(Crop, Soil, NewCond, GDD, Et0, GrowingSeason)
       
-      # NOPE
+      
           # 12. Soil evaporation
           GD <- SoilEvaporation(InitialiseStruct$ClockStruct, Soil, Crop, 
                                 IrrMngt, FieldMngt, 
@@ -148,7 +149,6 @@ Solution <- function(Weather, InitialiseStruct){
           Es <- GD$EsAct
           EsPot <- GD$EsPot
       
-      # NOPE
           # 13. Crop transpiration
           GD <- Transpiration(Soil, Crop,  IrrMngt,NewCond,Et0,CO2,GrowingSeason)
           Tr <- GD$TrAct
@@ -163,16 +163,16 @@ Solution <- function(Weather, InitialiseStruct){
           NewCond <- GD$NewCond
           GwIn <- GD$GwIn
       
-      #NOPE
+      
           # 15. Reference harvest index
           NewCond <- HIrefCurrentDay(NewCond, Crop, GrowingSeason)
       
       
-      # NOPE
+      
           # 16. Biomass accumulation
           NewCond <- BiomassAccumulation(Crop,NewCond,Tr, TrPot_NS, Et0,
-              Tmax,Tmin,GDD,GrowingSeason)
-      #NOPE
+              Tmax, Tmin, GDD,GrowingSeason)
+          
           # 17. Harvest index
           NewCond <- HarvestIndex(Soil, Crop, NewCond, Et0, Tmax, Tmin, GDD, 
                                   GrowingSeason)
@@ -193,8 +193,15 @@ Solution <- function(Weather, InitialiseStruct){
               # Crop yield is zero outside of growing season
               NewCond$Y <- 0
           }
+          
+          #print(paste(GrowingSeason, NewCond$CropDead, NewCond$CropMature,
+           #                       as_date(InitialiseStruct$ClockStruct$StepStartTime), 
+            #                     as_date(InitialiseStruct$ClockStruct$PlantingDate[InitialiseStruct$ClockStruct$SeasonCounter]), 
+             #                   as_date(InitialiseStruct$ClockStruct$HarvestDate[InitialiseStruct$ClockStruct$SeasonCounter]),
+              #        'Yield: ',NewCond$Y, 'Biomass:', NewCond$B, 'CC:', NewCond$CC,'Tr:', TrPot_NS, 'Eto: ', Et0,
+               #       'HI: ',NewCond$HIadj,
+                #      NewCond$CropMature))
       
-      #NOPE
       
           # 19. Root zone water
           GD <- RootZoneWater(Soil, Crop, NewCond)

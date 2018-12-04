@@ -184,6 +184,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
       Vals <- rep(1, length(Locs))
       Method <- MethodStr
       Type <- TypeStr
+      
       if(Method == 'Depth'){
           Locs <- round((100*Locs))/100
       }
@@ -196,11 +197,11 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
       # Assign data
       if(Type == 'Num'){
           # Values are defined as numbers (m3/m3) so no calculation required
-          Vals <- as.numeric(Data_Pts[1,2])
+          Vals <- as.numeric(Data_Pts[,'value'])
       } else if(Type == 'Pct'){
           # Values are defined as percentage of TAW. Extract and assign value for
           # each soil layer based on calculated/input soil hydraulic properties
-          ValsTmp <- Data_Pts[,2]
+          ValsTmp <- Data_Pts[,'value']
           for(ii in 1:length(ValsTmp)){
               if(Method == 'Depth'){
                   # Find layer at specified depth

@@ -17,7 +17,7 @@ CanopyCover <- function(Crop, Soil, InitCond, GDD, Et0, GrowingSeason){
     NewCond$CCprev <- InitCond$CC
 
     ## Calculate canopy development (if in growing season) ##
-    if (GrowingSeason == TRUE){
+    if(GrowingSeason == TRUE){
         GD <- RootZoneWater(Soil,Crop, NewCond)
         Wr <- GD$Wr
         Dr <- GD$Dr
@@ -38,7 +38,7 @@ CanopyCover <- function(Crop, Soil, InitCond, GDD, Et0, GrowingSeason){
         } else if (Crop$CalendarType == 2){
             tCC <- NewCond$GDDcum
             dtCC <- GDD
-            tCCadj <- NewCond$GDDcum-NewCond$DelayedGDDs
+            tCCadj <- NewCond$GDDcum - NewCond$DelayedGDDs
         }
 
         ## Canopy development (potential) ##
@@ -83,6 +83,7 @@ CanopyCover <- function(Crop, Soil, InitCond, GDD, Et0, GrowingSeason){
             # maturity
             NewCond$CC <- 0
         } else if (tCCadj < Crop$CanopyDevEnd){
+            #print('canopy')
             # Canopy growth can occur
             if (InitCond$CC <= NewCond$CC0adj){
                 # Very small initial CC as it is first day or due to senescence. In
@@ -141,10 +142,12 @@ CanopyCover <- function(Crop, Soil, InitCond, GDD, Et0, GrowingSeason){
                     }
                 }
             }
+            
             if (NewCond$CC > InitCond$CCxAct){
                 # Update actual maximum canopy cover size during growing season
                 NewCond$CCxAct <- NewCond$CC
             }
+            
         } else if (tCCadj > Crop$CanopyDevEnd){
             # No more canopy growth is possible or canopy is in decline
             if (tCCadj < Crop$Senescence){
@@ -162,8 +165,8 @@ CanopyCover <- function(Crop, Soil, InitCond, GDD, Et0, GrowingSeason){
                 CDCadj <- Crop$CDC*(NewCond$CCxAct/Crop$CCx)
                 # Determine new canopy size
                 tmp_tCC <- tCCadj-Crop$Senescence
-                NewCond$CC <- CCDevelopment(NewCond$CC0adj,NewCond$CCxAct,
-                    Crop$CGC,CDCadj,tmp_tCC,'Decline')
+                NewCond$CC <- CCDevelopment(NewCond$CC0adj, NewCond$CCxAct,
+                    Crop$CGC, CDCadj, tmp_tCC, 'Decline')
             }
             # Check for crop growth termination
             if((NewCond$CC < 0.001) & (InitCond$CropDead == FALSE)){

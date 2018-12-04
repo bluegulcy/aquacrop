@@ -33,10 +33,10 @@ WaterStress <- function(Crop, InitCond, Dr, TAW, Et0, beta){
     }
 
     # Limit values
-    p_up[p_up<0] <- 0
-    p_lo[p_lo<0] <- 0
-    p_up[p_up>1] <- 1
-    p_lo[p_lo>1] <- 1
+    p_up[p_up < 0] <- 0
+    p_lo[p_lo < 0] <- 0
+    p_up[p_up > 1] <- 1
+    p_lo[p_lo > 1] <- 1
 
     # Calculate relative depletion
     Drel <- rep(0, 1, nstress)

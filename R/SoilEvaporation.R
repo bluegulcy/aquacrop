@@ -24,6 +24,8 @@ SoilEvaporation <- function(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,
 
       cc <- list()
       ## Store initial conditions in new structure that will be updated ##
+      # Debbug
+      #InitCond <- NewCond
       NewCond <- InitCond
 
       ## Initialise Wevap structure ##
@@ -56,7 +58,7 @@ SoilEvaporation <- function(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,
 
       ## Prepare soil evaporation stage 1 ##
       # Adjust water in surface evaporation layer for any infiltration
-      if((Rain > 0) | ((Irr > 0)) & (IrrMngt$IrrMethod != 4)){
+      if((Rain > 0 | Irr > 0) & (IrrMngt$IrrMethod != 4)){
           # Only prepare stage one when rainfall occurs, or when irrigation is
           # trigerred (not in net irrigation mode)
           if (Infl > 0){
@@ -144,7 +146,7 @@ SoilEvaporation <- function(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,
       }
 
       # Partial surface wetting by irrigation
-      if((Irr > 0) & (IrrMngt$IrrMethod!=4)) {
+      if(Irr > 0 & IrrMngt$IrrMethod!=4 ) {
           # Only apply adjustment if irrigation occurs and not in net irrigation
           # mode
           if((Rain > 1) | (NewCond$SurfaceStorage > 0)) {
@@ -187,10 +189,10 @@ SoilEvaporation <- function(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,
 
       ## Stage 1 evaporation ##
       # Determine total water to be extracted
-      ToExtract <- EsPot-EsAct
+      ToExtract <- EsPot - EsAct
       # Determine total water to be extracted in stage one (limited by surface
       # layer water storage)
-      ExtractPotStg1 <- min(ToExtract,NewCond$Wsurf)
+      ExtractPotStg1 <- min(ToExtract, NewCond$Wsurf)
       # Extract water
       if (ExtractPotStg1 > 0){
           # Find soil compartments covered by evaporation layer
