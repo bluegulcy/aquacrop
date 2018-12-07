@@ -9,7 +9,7 @@
   <MaxRooting>864</MaxRooting>
   <Senescence>1700</Senescence>
   <Maturity>2400</Maturity>
-  <HIstart>1300</HIstart>
+  <HIstart>1250</HIstart>
   <Flowering>200</Flowering>
   <YldForm>1100</YldForm>
   <GDDmethod>2</GDDmethod>
@@ -37,10 +37,10 @@
   <PlantPop>4500000</PlantPop>
   <CCmin>0.05</CCmin>
   <CCx>0.96</CCx>
-  <CDC>0.004000</CDC>
-  <CGC>0.04902</CGC>
+  <CDC>0.004</CDC>
+  <CGC>0.005001</CGC>
   <Kcb>1.10</Kcb>
-  <fage>0.3</fage>
+  <fage>0.15</fage>
   <WP>15</WP>
   <WPy>100</WPy>
   <fsink>0.2</fsink>
@@ -48,22 +48,22 @@
   <bface>0.001165</bface>
   <HI0>0.48</HI0>
   <HIini>0.01</HIini>
-  <dHI_pre>0</dHI_pre>
-  <a_HI>7</a_HI>
-  <b_HI>3</b_HI>
+  <dHI_pre>5</dHI_pre>
+  <a_HI>10</a_HI>
+  <b_HI>7</b_HI>
   <dHI0>15</dHI0>
   <Determinant>1</Determinant>
-  <exc>50</exc>
+  <exc>100</exc>
   <MaxFlowPct>33.33</MaxFlowPct>
   <p_up1>0.20</p_up1>
-  <p_up2>0.69</p_up2>
-  <p_up3>0.69</p_up3>
-  <p_up4>0.8</p_up4>
+  <p_up2>0.65</p_up2>
+  <p_up3>0.70</p_up3>
+  <p_up4>0.85</p_up4>
   <p_lo1>0.65</p_lo1>
   <p_lo2>1</p_lo2>
   <p_lo3>1</p_lo3>
   <p_lo4>1</p_lo4>
-  <fshape_w1>2.5</fshape_w1>
+  <fshape_w1>5</fshape_w1>
   <fshape_w2>2.5</fshape_w2>
   <fshape_w3>2.5</fshape_w3>
   <fshape_w4>1</fshape_w4>
@@ -71,5 +71,5 @@
   <Aer>5</Aer>
   <LagAer>3</LagAer>
   <beta>12</beta>
-  <GermThr>0.2</GermThr>
+  <GermThr>0.3</GermThr>
 </Crop>

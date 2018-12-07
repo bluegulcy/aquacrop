@@ -225,7 +225,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
       } else if(Type == 'Prop'){
           # Values are specified as soil hydraulic properties (SAT, FC, or WP).
           # Extract and assign value for each soil layer
-          ValsTmp <- Data_Pts[,2]
+          ValsTmp <- as.character(Data_Pts[,'value'])
           for(ii in 1:length(ValsTmp)){
               if(Method == 'Depth'){
                   # Find layer at specified depth
@@ -267,7 +267,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
           # Add zero point
           if(Locs[1] > 0){
               Locs <- c(0, Locs)
-              Vals <- c(Vals[1], Vals)
+              Vals <- c(Vals[1], Vals) # 
           }
           # Add end point (bottom of soil profile)
           if(Locs[length(Locs)] < ParamStruct$Soil$zSoil){
@@ -282,6 +282,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
           # FIXME Approx doesn't work for 1 value
           thini <- approx(Locs, Vals, comp_mid)
           InitCondStruct$th <- thini$y
+          
       }
 
       # If groundwater table is present and calculating water contents based on

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<InitiaWaterContent>
+
+<InitialWaterContent>
 	<type_of_value>Num</type_of_value>
-	<method>Depth</method>
+	<method>Layer</method>
 	<number_of_input_points>1</number_of_input_points>
 	<input_data_points>
 	<td>
@@ -9,4 +10,4 @@
 		<value>0.15</value>
 	</td>
 	</input_data_points>
-</InitiaWaterContent>
+</InitialWaterContent>
