@@ -192,6 +192,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
       # Define soil compartment depths and layers
       SoilLayers <- ParamStruct$Soil$Comp$Layer
       SoilDepths <- cumsum(ParamStruct$Soil$Comp$dz)
+      #FIXME: This line doesn't make sense
       SoilDepths <- round((100*SoilDepths))/100
 
       # Assign data
@@ -241,6 +242,10 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
                       Vals[ii] <- ParamStruct$Soil$Layer$th_fc[LayTmp]
                   } else if (ValsTmp[ii] == 'WP'){
                       Vals[ii] <- ParamStruct$Soil$Layer$th_wp[LayTmp]
+                  } else{
+                     
+                     print(paste('Prop: ',ValsTmp[ii], 'is not valid'))
+                    break
                   }
               } else if (Method == 'Layer'){
                   # Calculate moisture content at specified layer
