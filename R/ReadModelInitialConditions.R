@@ -232,7 +232,7 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
                   if(Locs[ii] < SoilDepths[length(Locs)]){
                       LayTmp <- SoilLayers[which(Locs[ii] >= SoilDepths)[1]]
                   } else {
-                      LayTmp <- SoilLayers(length(SoilLayers))
+                      LayTmp <- SoilLayers[length(SoilLayers)]
                   }
                   # Calculate moisture content at specified depth
                   if(ValsTmp[ii] == 'SAT'){
@@ -251,13 +251,18 @@ ReadModelInitialConditions <- function(ParamStruct, GwStruct, FieldMngtStruct, C
                       Vals[ii] <- ParamStruct$Soil$Layer$th_fc[LayTmp]
                   } else if (ValsTmp[ii] == 'WP'){
                       Vals[ii] <- ParamStruct$Soil$Layer$th_wp[LayTmp]
+                  } else{
+                     
+                     print(paste('Prop: ',ValsTmp[ii], 'is not valid'))
+                     break
+                  
                   }
               }
           }
       }
 
       # Interpolate values to all soil compartments
-      thini <- rep(0, 1, 12)
+      thini <- rep(0, ParamStruct$Soil$nComp)
       if(Method == 'Layer'){
           for (ii in 1:length(Vals)){
               thini[ParamStruct$Soil$Comp$Layer == Locs[ii]] <- Vals[ii]
