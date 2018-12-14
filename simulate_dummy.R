@@ -67,12 +67,15 @@ plot_scatter <- function(u, t, folder_name){
   o =  strsplit(folder_name, '_')[[1]][4]
   res <- caret::postResample(as.numeric(u$Yield[1:20]),  t[[o]])
   print(res)
-  plot(t[[o]], type = 'points', ylim = c(0,11), xlab = 'Observations',
-       ylab = 'Yield', pch = 19)
-  points(as.numeric(u$Yield[1:20]), col='red', xlab = 'Observations',
-         ylab = 'Yield', pch = 19)
+  plot(t[[o]], type = 'points', ylim = c(0,11.5), cex.axis = 0.8, 
+       xlab = 'Observations 1982-2002',
+       ylab = 'Yield (ton/ha)', pch = 19)
+  points(as.numeric(u$Yield[1:20]), col='red', cex.axis = 0.8, 
+         xlab = 'Observations 1982-2002',
+         ylab = 'Yield (ton/ha)', pch = 19)
   legend("bottomleft", c("GUI", "AquaCropR"), col = 1:2, pch = 19,
-         y.intersp=1, bty='n', title = paste('Test:', o, 'R2: ', round(res[[2]],2), 
+         y.intersp=1, bty='n', title = paste('R2: ', 
+                                             round(res[[2]],2), 
           'RMSE: ',  round(res[[1]],2)), cex = 0.8, xjust=0)
   #print(u$Yield)
   
@@ -89,8 +92,8 @@ folder_names <- dir(pattern='input_*')
 folder_name <-  folder_names[2]
 t <- read.csv('results_AquaCropGUI.csv')
 
-tiff('test.tiff', res=100)
-par(mfrow = c(2,2),mar=c(0.95,2,0.9,0.4), oma=c(1.5,2,1,1))
+tiff('test.tiff', width  = 800, height = 800, res=150)
+par(mfrow = c(2,2), mar=c(4,4,2,2), oma=c(0,0.5,0,2))
 for(folder_name in folder_names[c(2:5)]){
     FileLocation = ReadFileLocations(paste(folder_name,'/', 'filesetup.xml', 
                                            sep=''))
