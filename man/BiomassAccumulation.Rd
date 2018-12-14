@@ -2,7 +2,7 @@
 % Please edit documentation in R/BiomassAccumulation.R
 \name{BiomassAccumulation}
 \alias{BiomassAccumulation}
-\title{Calculate biomass accumulation}
+\title{Calculate biomass accumulation (g m-2)}
 \usage{
 BiomassAccumulation(Crop, InitCond, Tr, TrPot, Et0, Tmax, Tmin, GDD,
   GrowingSeason)
@@ -30,7 +30,7 @@ BiomassAccumulation(Crop, InitCond, Tr, TrPot, Et0, Tmax, Tmin, GDD,
 \code{NewCond} for a n time-step.
 }
 \description{
-Calculate biomass accumulation
+Calculate biomass accumulation (g m-2)
 }
 \examples{
 BiomassAccumulation(Crop, InitCond, Tr, TrPot, Et0, Tmax, Tmin, GDD, GrowingSeason)
