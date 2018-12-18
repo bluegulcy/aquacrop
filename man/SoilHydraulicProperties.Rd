@@ -9,9 +9,11 @@ Rawls (2006)}
 SoilHydraulicProperties(Soil)
 }
 \arguments{
-\item{Soil}{properties of soil
-#' @return list with \code{thdry}, \code{thwp}, \code{hfc}, \code{ths} and \code{ksa}
-for a n time-step.}
+\item{Soil}{properties of soil}
+}
+\value{
+list with \code{thdry}, \code{thwp}, \code{hfc}, \code{ths} and \code{ksa}
+for a n time-step.
 }
 \description{
 Calculate soil hydraulic properties, given textural inputs.

@@ -4,6 +4,7 @@
 #' @param Crop Parameters for a given crop
 #' @param GrowingSeason crop developmental stage
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' HIrefCurrentDay(InitCond, Crop, GrowingSeason)
 

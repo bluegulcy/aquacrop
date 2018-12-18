@@ -1,4 +1,5 @@
 #' Irrigation Management Parameters
+#' @export
 #' @format The irrigation management file defines the input variables controlling 
 #' irrigation practices in AquaCrop file in xml format should be provided with 
 #' the following fields: 

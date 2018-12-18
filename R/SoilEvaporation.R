@@ -12,6 +12,7 @@
 #' @param GrowingSeason crop developmental stage
 #' @return list with \code{NewCond}, \code{EsAct} actual evaporation and \code{EsPot} 
 #' potential soil evaporation for a n time-step.
+#' @export
 #' @examples
 #' SoilEvaporation(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,InitCond,Et0,Infl,Rain,Irr,GrowingSeason)
 

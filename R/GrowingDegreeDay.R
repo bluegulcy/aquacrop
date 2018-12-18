@@ -4,6 +4,7 @@
 #' @param Tmax max temperature for n time-step
 #' @param Tmin min temperature for n time-step
 #' @return list with \code{NewCond} and \code{GDD} for n time-step
+#' @export
 #' @examples
 #' GrowingDegreeDay(Crop, InitCond, Tmax, Tmin)
 

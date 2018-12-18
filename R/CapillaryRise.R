@@ -4,6 +4,7 @@
 #' @param Groundwater ground water table
 #' @param FluxOut Flux
 #' @return list with \code{NewCond} and \code{CrTot} for a n time-step.
+#' @export
 #' @examples
 #' CapillaryRise(Soil, Groundwater, InitCond, FluxOut)
 

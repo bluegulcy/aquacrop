@@ -5,6 +5,7 @@
 #' @param Weather dataset with weather data
 #' @param ClockStruct crop calendar
 #' @return \code{Crop}.
+#' @export
 #' @examples
 #' ComputeCropCalendar(Crop, CropName, CropChoices, Weather, ClockStruct)
 

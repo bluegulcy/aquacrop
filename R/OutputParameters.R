@@ -1,4 +1,5 @@
 #' OutputParameters to be provided in at the end of the simulation
+#' @export
 #' @format A dataset with the following variables will be provided as
 #' output of the AquaCropR simulation:
 #' \describe{

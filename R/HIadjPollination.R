@@ -6,6 +6,7 @@
 #' @param Kst Temperature stress
 #' @param HIt Harvest index on current day
 #' @return with \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' HIadjPollination(InitCond, Crop, Ksw, Kst, HIt)
 

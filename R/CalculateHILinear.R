@@ -2,6 +2,7 @@
 #' associated linear rate of build-up. Only for fruit/grain crops.
 #' @param Crop list
 #' @return list with \code{tSwitch} and \code{dHILin}.
+#' @export
 #' @examples
 #' CalculateHILinear(Crop)
 

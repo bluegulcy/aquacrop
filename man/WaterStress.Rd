@@ -20,7 +20,8 @@ WaterStress(Crop, InitCond, Dr, TAW, Et0, beta)
 \item{beta}{beta}
 }
 \value{
-water stress list with \code{Exp}, \code{Sto}, \code{Sen}, \code{Pol} and \code{StoLin} for a n time-step.
+water stress list with \code{Exp}, \code{Sto}, \code{Sen}, \code{Pol} 
+and \code{StoLin} for a n time-step.
 }
 \description{
 Calculate relative root zone water depletion for each stress type

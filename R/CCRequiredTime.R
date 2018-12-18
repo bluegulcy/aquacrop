@@ -8,6 +8,7 @@
 #' @param dt delta time
 #' @param tSum tSum
 #' @param Mode Stage
+#' @export
 #' @return \code{tReq} eequired time for a n time-step.
 #' @examples
 #' CCRequiredTime(CCprev, CCo, CCx, CGC, CDC, dt, tSum, Mode)

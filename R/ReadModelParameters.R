@@ -2,6 +2,7 @@
 #' @param FileLocation list with file locations
 #' @param ClockStruct crop calendar
 #' @return list with uodated \code{ClockStruct} \code{ParamStruct} and \code{CropChoices}.
+#' @export
 #' @examples
 #' ReadModelParameters(FileLocation, ClockStruct)
 

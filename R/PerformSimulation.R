@@ -1,6 +1,7 @@
 #' Perform simulation
 #' @param InitialiseStruct Crop setting initial structure
 #' @return list with \code{Outputs} results.
+#' @export
 #' @examples
 #' PerfomSimulation(InitialiseStruct)
 

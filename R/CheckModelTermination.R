@@ -3,6 +3,7 @@
 #' @param ClockStruct the Clock list
 #' @param InitialiseStruct the crop initial conditions in list format
 #' @return \code{ClockStruct}.
+#' @export
 #' @examples
 #' CheckModelTermination(ClockStruct, InitialiseStruct)
 

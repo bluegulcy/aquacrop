@@ -12,9 +12,9 @@ the model (e.g. F <- ReadFileLocations('FileLocation.xml'))}
 \item{Third}{Use the Initialise() function to initialise your variables. 
 Refer to the \link{Initialise} section to get familiar with the function
 (e.g. I <- Initialise(F))}
-\item{Fourth}{Use the PerformTimeStep() function to perform the simulation.
-Refer to the \link{PerformTimeStep} section to get familiar with the function
-(e.g. O <- PerformTimeStep(I)). PerformTimeStep will output all the 
+\item{Fourth}{Use the PerformSimulation() function to perform the simulation.
+Refer to the \link{PerformSimulation} section to get familiar with the function
+(e.g. O <- PerformSimulation(I)). PerformSimulation will output all the 
 variables create by the model in the form of a list. Refer to 
 \link{OutputParameters} for more information about these variables}
 
@@ -29,7 +29,7 @@ About how to run the simulation
 \examples{
 F <- ReadFileLocations('FileSetup.xml')
 I <- Initialise(F)
-O <- PerformTimeStep(I)
+O <- PerformSimulation(I)
 names(O)
 
 

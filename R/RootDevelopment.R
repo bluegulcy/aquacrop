@@ -6,6 +6,7 @@
 #' @param GDD Growing degree days
 #' @param GrowingSeason crop developmental stage
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' RootDevelopment(Crop, Soil, GroundWater, InitCond, GDD, GrowingSeason)
 

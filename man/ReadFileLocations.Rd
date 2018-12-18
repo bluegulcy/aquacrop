@@ -88,8 +88,7 @@ input file. Using these input values, AquaCrop calculates the hydraulic
 layer (water contents at saturation, field capacity, and permanent 
 wilting, along with the 
 saturated hydraulic conductivity) based on the pedotransfer function 
-model developed by
-\insertCite{Saxton2006}{AquaCropR}.
+model https://en.wikipedia.org/wiki/Pedotransfer_function.
 
 \item{SoilHydrologyFilename}{Name of FieldManagement file (xml format). 
 If the user specifies 
@@ -264,7 +263,4 @@ Read files input and output file locations
 }
 \examples{
 ReadFileLocations('dummy.xml')
-}
-\references{
-\insertAllCited{}
 }

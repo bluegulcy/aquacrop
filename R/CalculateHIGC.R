@@ -1,6 +1,7 @@
 #' Calculate harvest index growth coefficient.
 #' @param Crop list
 #' @return list with \code{HIGC} and \code{tHI}.
+#' @export
 #' @examples
 #' CalculateHIGC(Crop)
 

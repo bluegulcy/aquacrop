@@ -6,6 +6,7 @@
 #' @param FileLocation file locations
 #' @param ClockStruct crop calendar structure
 #' @return \code{InitCondStruct} with intial conditions.
+#' @export
 #' @examples
 #' ReadModelInitialConditions(ParamStruct, GwStruct, FieldMngtStruct, CropChoices, FileLocation,
 #' ClockStruct)

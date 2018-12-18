@@ -2,6 +2,7 @@
 #' @param Crop Parameters for a given crop
 #' @param InitCond Crop setting initial structure
 #' @param thRZ aeration stress (root zone)
+#' @export
 #' @return list with \code{NewCond} and \code{Ksa} aeration stress coefficient for a n time-step.
 #' @examples
 #' AerationStress(Crop, InitCond, thRZ)

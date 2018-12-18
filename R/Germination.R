@@ -5,6 +5,7 @@
 #' @param GDD Growing degree days
 #' @param GrowingSeason crop developmental stage
 #' @return \code{NewCond}  for a n time-step.
+#' @export
 #' @examples
 #' Germination(InitCond, Soil, Crop, GDD, GrowingSeason)
 

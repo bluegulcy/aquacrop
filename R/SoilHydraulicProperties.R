@@ -2,8 +2,9 @@
 #' Calculations use pedotransfer function equations described in Saxton and
 #' Rawls (2006)
 #' @param Soil properties of soil
-#' #' @return list with \code{thdry}, \code{thwp}, \code{hfc}, \code{ths} and \code{ksa}
+#' @return list with \code{thdry}, \code{thwp}, \code{hfc}, \code{ths} and \code{ksa}
 #' for a n time-step.
+#' @export
 #' @examples
 #' SoilHydraulicProperties(Soil)
 

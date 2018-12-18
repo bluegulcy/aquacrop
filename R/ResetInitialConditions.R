@@ -3,6 +3,7 @@
 #' @param InitialiseStruct Crop setting initial structure
 #' @param ClockStruct crop calendar
 #' @return list with \code{InitialiseStruct} and \code{ClockStruct} for a n time-step
+#' @export
 #' @examples
 #' ResetInitialConditions(InitialiseStruct, ClockStruct)
 

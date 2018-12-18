@@ -2,6 +2,7 @@
 #' @param InitialiseStruct Crop setting initial structure
 #' @param ClockStruct crop calendar
 #' @return list with \code{Weather} for n time-step
+#' @export
 #' @examples
 #' ExtractWeatherData(ClockStruct, InitialiseStruct)
 

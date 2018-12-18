@@ -1,7 +1,7 @@
 #' Read files input and output file locations
 #' @param filename An xml file with locations
 #' @return list with \code{FileLocation}
-#' 
+#' @export
 #' @examples
 #' ReadFileLocations('dummy.xml')
 #' @format An xml file should be provided with the following fields 
@@ -89,8 +89,7 @@
 #' layer (water contents at saturation, field capacity, and permanent 
 #' wilting, along with the 
 #' saturated hydraulic conductivity) based on the pedotransfer function 
-#' model developed by
-#' \insertCite{Saxton2006}{AquaCropR}.
+#' model https://en.wikipedia.org/wiki/Pedotransfer_function.
 #' 
 #' \item{SoilHydrologyFilename}{Name of FieldManagement file (xml format). 
 #' If the user specifies 
@@ -251,8 +250,7 @@
 #' simulation days.
 #'}
 #'}
-#'@references
-#'\insertAllCited{}
+
 
 ReadFileLocations <- function(filename){
 

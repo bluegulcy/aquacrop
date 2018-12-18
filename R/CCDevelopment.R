@@ -7,6 +7,7 @@
 #' @param dt Canopy approaching maximum size
 #' @param Mode crop calendar mode
 #' @return \code{CC} canopy for a n time-step.
+#' @export
 #' @examples
 #' CCDevelopment(CCo, CCx, CGC, CDC, dt, Mode)
 

@@ -4,6 +4,7 @@
 #' @param Crop parameters for a given crop
 #' @param Soil properties of soil
 #' @return list with \code{Wr}, \code{Dr},  \code{TAW} and \code{thRZ} for a n time-step.
+#' @export
 #' @examples
 #' RootZoneWater(Soil, Crop, InitCond)
 

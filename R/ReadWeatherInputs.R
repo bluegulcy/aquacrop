@@ -2,6 +2,7 @@
 #' @param FileLocation file locations
 #' @param ClockStruct list time
 #' @return list with \code{WeatherDB}.
+#' @export
 #' @examples
 #' ReadWeatherInputs(FileLocation, ClockStruct)
 ReadWeatherInputs <- function(FileLocation, ClockStruct){

@@ -2,6 +2,7 @@
 #' @param Weather weather parameters or n time-step
 #' @param InitialiseStruct Crop setting initial structure
 #' @return list with \code{NewCond}, \code{Outputs} and \code{ClockStruct} for n time-step
+#' @export
 #' @examples
 #' Solution(Weather, ClockStruct, InitialiseStruct)
 

@@ -2,6 +2,7 @@
 #' @param Soil structure characteristics
 #' @param InitCond Crop setting initial structure
 #' @return \code{NewCond}, \code{DeepPerc} and \code{FluxOut} for n time-step
+#' @export
 #' @examples
 #' Drainage(Soil, InitCond)
 #' 

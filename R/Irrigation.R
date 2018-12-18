@@ -8,6 +8,7 @@
 #' @param P precipitation
 #' @param Runoff water Runoff
 #' @return list with \code{NewCond} and \code{Irr} for a n time-step.
+#' @export
 #' @examples
 #' Irrigation(InitCond, IrrMngt, Crop, Soil, ClockStruct, GrowingSeason, P, Runoff)
 

@@ -5,7 +5,9 @@
 #' @param TAW Total available water
 #' @param Et0 Evapotranspiration
 #' @param beta beta
-#' @return water stress list with \code{Exp}, \code{Sto}, \code{Sen}, \code{Pol} and \code{StoLin} for a n time-step.
+#' @return water stress list with \code{Exp}, \code{Sto}, \code{Sen}, \code{Pol} 
+#' and \code{StoLin} for a n time-step.
+#' @export
 #' @examples
 #' WaterStress(Crop,InitCond,Dr,TAW,Et0, beta)
 

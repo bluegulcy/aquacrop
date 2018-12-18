@@ -6,6 +6,7 @@
 #' @param CropChoices Crops to be analysed
 #' @param FileLocation list with file locations
 #' @return \code{ParamStruct}.
+#' @export
 #' @examples
 #' ComputeVariables(ParamStruct, Weather, ClockStruct, GwStruct, CropChoices, FileLocation)
 #'

@@ -4,6 +4,7 @@
 #' @param InitCond Crop setting initial structure
 #' @param Ksw 
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' HIadjPostAnthesis(InitCond, Crop, Ksw)
 

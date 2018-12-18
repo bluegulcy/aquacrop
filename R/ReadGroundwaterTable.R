@@ -2,6 +2,7 @@
 #' @param FileLocation list with file locations
 #' @param ClockStruct crop calendar
 #' @return \code{GwStruct} water table.
+#' @export
 #' @examples
 #' ReadGroundwaterTable(FileLocation, ClockStruct)
 

@@ -1,4 +1,5 @@
 #' Soil Parameters to be provided in SoilFile
+#' @export
 #' @format An .csv file should be provided with the following fields 
 #' \describe{
 #' \item{CalcSHP}{Determines if soil hydraulic properties are calculated from textural characteristics of soil layers  Units:0 = No; 1 = Yes   Default value: -}

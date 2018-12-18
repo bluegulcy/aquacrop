@@ -1,5 +1,6 @@
 #' Flower function
 #' @param xx parameter
+#' @export
 flowerfun  <- function(xx){
 
   return((0.00558*(xx^0.63))-(0.000969*xx)-0.00383)
@@ -9,6 +10,7 @@ flowerfun  <- function(xx){
 
 #' check file exist and load
 #' @param filename, file name
+#' @export
 check_file_exist <- function(filename){
 
   #print(filename)
@@ -27,6 +29,7 @@ check_file_exist <- function(filename){
 
 #' check file exist and load
 #' @param filename, file name
+#' @export
 check_xml_exist <- function(filename){
 
   #print(filename)
@@ -45,6 +48,7 @@ check_xml_exist <- function(filename){
 
 #' check file exist and load
 #' @param filename, file name
+#' @export
 check_xml_table_exist <- function(filename){
 
 
@@ -64,6 +68,7 @@ check_xml_table_exist <- function(filename){
 
 #'convert data.frame to list
 #'@param sdat data.frame
+#'@export
 Convert_to_List <- function(sdat){
 
   cont_list <- list()
@@ -83,7 +88,7 @@ Convert_to_List <- function(sdat){
 #'@param sdat date in format "\%Y-\%m-\%d" as default
 #'@param o origin
 #'@param f format
-#'
+#'@export
 as_datenum <- function(sdat, o = '0000-01-01', f = "%Y-%m-%d"){
   
 
@@ -94,6 +99,7 @@ as_datenum <- function(sdat, o = '0000-01-01', f = "%Y-%m-%d"){
 
 #' Number of days from sdat to origin
 #' @param x date where x should be in the format: x['Year'], x['Month'], x['Day']
+#' @export
 as_datenum_string <- function(x){
   
   
@@ -107,6 +113,7 @@ as_datenum_string <- function(x){
 
 #' Number of days from sdat to origin
 #' @param sdat date in format "\%Y-\%m-\%d"
+#' @export
 as_date <- function(sdat){
 
   n = as.Date(sdat, origin = '0000-01-01')
@@ -118,6 +125,7 @@ as_date <- function(sdat){
 
 #' It's datavec in Matlab. Converts data in numeric format to date in vector
 #' format i.e. yyyy, m, d
+#' @export
 as_date_list <- function(sdat, origin_value = '0000-01-01'){
 
   d <- strsplit(as.character(as.Date(sdat, origin = origin_value)), '-')
@@ -129,6 +137,7 @@ as_date_list <- function(sdat, origin_value = '0000-01-01'){
 #' export dataframe as xml
 #' @param sdata dataset
 #' @param filename name of file
+#' @export
 export_as_xml <- function(sdata, filename){
 
 
@@ -138,6 +147,7 @@ export_as_xml <- function(sdata, filename){
 
 #' Convert to numeric
 #' @param sdata dataset
+#' @export
 conver2num <- function(sdata){
 
 
@@ -149,7 +159,7 @@ conver2num <- function(sdata){
 #' @param slist list
 #' @param lnames field names to transform
 #' FIXME: do it for subsets
-#'
+#'@export
 convert_list_2numeric <- function(slist, lnames = NULL){
 
   if(is.null(lnames)){
@@ -172,7 +182,7 @@ convert_list_2numeric <- function(slist, lnames = NULL){
 #' @param slist list
 #' @param lnames field names to transform
 #' FIXME: do it for subsets
-#'
+#'@export
 convert_table_list_2numeric <- function(slist, lnames = NULL){
   
   if(is.null(lnames)){
@@ -194,6 +204,7 @@ convert_table_list_2numeric <- function(slist, lnames = NULL){
 #' calculate Water vapour pressure (Kpa) according to FAO
 #' @param x list with three parameters x[[1]] = RH, x[[2]] = TMAX, x[[3]] = TMIN
 #' @param AVP actual vapour pressure 
+#' @export
 #' @examples
 #' RH = 57.8
 #' TMAX = 22.96
@@ -212,6 +223,7 @@ calcAVP = function(x)
 #' change date format
 #' @param x date, where year = x[[1]], DOY = x[[2]]
 #' @return d
+#' @export
 #' @examples
 #' year = '2011'
 #' DOY = 1
@@ -236,6 +248,7 @@ ChangeDateFormat <- function(x){
 #' get parameter year from date string
 #' @param x date, where year = x[[1]], DOY = x[[2]] 
 #' @return year 
+#' @export
 get_year <- function(x){
   
   return(strsplit(ChangeDateFormat(x), '-')[[1]][1])
@@ -245,6 +258,7 @@ get_year <- function(x){
 #' get parameter month from date string
 #' @param x date, where year = x[[1]], DOY = x[[2]] 
 #' @return month of the year
+#' @export
 get_month <- function(x){
   
   return(strsplit(ChangeDateFormat(x), '-')[[1]][2])
@@ -254,6 +268,7 @@ get_month <- function(x){
 #' get parameter day from date string
 #' @param x date, where year = x[[1]], DOY = x[[2]] 
 #' @return day of the month
+#' @export
 get_day <- function(x){0
   
   return(strsplit(ChangeDateFormat(x), '-')[[1]][3])
@@ -261,7 +276,6 @@ get_day <- function(x){0
 }
 
 #' calculate sowingdate
-
 #' @param weather_data weather data
 #' @param start_date start window 'dd/mm'
 #' @param day label in dataset
@@ -271,10 +285,8 @@ get_day <- function(x){0
 #' @param year_list year to be analysed
 #' @param Crop crop name
 #' @param ccl crop calendar length
-#' @example
-#' w <- calculate_sowingdate(weather_data, start_date = '01/10', end_date = '31/12', thr = 5,
-#day = 'day', month='month', year='year', P = 'p', year_list, Crop = 'Wheat',
-#ccl = 180)
+#' @export
+
 
 calculate_sowingdate <- function(weather_data, start_date, end_date, thr = 5,
                                  day, month, year, P, year_list, Crop,
@@ -335,6 +347,7 @@ calculate_sowingdate <- function(weather_data, start_date, end_date, thr = 5,
 #' convert to DOY
 #' @param fdate date
 #' @return DOY
+#' @export
 #' @examples
 #' convertDOY('01-01-2000')
 convertDOY = function(fdate)
@@ -348,7 +361,8 @@ convertDOY = function(fdate)
 #' get stefan Boltzmann temp
 #' @param t temperature
 #' @return temperature
-#' examples
+#' @export
+#' @examples
 #' get_stefan_Boltzmann(14.88)
 #' 
 get_stefan_Boltzmann <- function(t){
@@ -372,6 +386,7 @@ get_stefan_Boltzmann <- function(t){
 #' Calculate actual vapor pressure (ea) derived from dewpoint temperature
 #' @param Tdew Dewpoint temperature (oC)
 #' @return ea
+#' @export
 #' @examples
 #' get_ea_dp(14.65)
 
@@ -392,6 +407,7 @@ get_ea_dp <- function(Tdew){
 #' @param eoTmax saturation vapour Tmax
 #' @param eoTmin saturation vapour Tmin
 #' @return ea 
+#' @export
 #' @examples
 #' get_ea_rh(57.44)
 
@@ -406,6 +422,7 @@ get_ea_rh <- function(rh, eoTmax, eoTmin){
 #' Calculate atmospheric pressure (P)
 #' @param z  elevation above sea level (m)
 #' @return P atmospheric pressure (kPa)
+#' @export
 #' @examples 
 #' get_atmospheric_pressure(1800)
 
@@ -419,6 +436,7 @@ get_atmospheric_pressure <- function(z){
 #' Slope of saturation vapour pressure curve
 #' @param Tmean mean temperature (oC)
 #' @return delta  Slope of saturation vapour pressure curve T(kPa oC-1)
+#' @export
 #' @examples 
 #' get_slope_saturation_vp(1800)
 get_slope_saturation_vp <- function(Tmean){
@@ -441,6 +459,7 @@ get_slope_saturation_vp <- function(Tmean){
 #' @param altitude (m)
 #' @param easqrt sqrt(ea)
 #' @return rn_mm_day mm/day
+#' @export
 #' @examples
 #' get_net_radiation(29.5, 18.88, 27.47, 83.64)
 
@@ -474,6 +493,7 @@ get_net_radiation <- function(Tmax, Tmin, RA, altitude, easqrt){
 #' Calculate ETo using Penman_Monteith
 #' @param x weather parameters Tmax = x[[1]],  Tmax <- x[[1]], Tmin <- x[[2]],
 #' RA <- x[[3]], Wind <- x[[4]], Tdew <- x[[5]], altitude <- x[[6]] =  max temperature
+#' @export
 #' @examples 
 #' get_Eto(x)
 

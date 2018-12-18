@@ -1,6 +1,7 @@
 #' Read input files and initialise model clock parameters
 #' @param FileLocation list with file locations
 #' @return \code{FieldManagement} list.
+#' @export
 #' @examples
 #' ReadFieldManagement(FileLocation)
 

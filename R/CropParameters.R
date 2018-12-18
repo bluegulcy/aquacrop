@@ -1,12 +1,12 @@
 #' Crop Parameters to be provided in CropFile.
+#' @export
 #' @format A file in xml format should be provided with the following fields. 
 #' Guidance on appropriate
 #' parameter values for different crop types can be obtained from the FAO 
-#' AquaCrop manual \insertCite{Vanuytrecht2014,Raes2009}{AquaCropR}.
+#' AquaCrop manual Steduto et sl (2009), Agronomy Journal, 2009, 101, 426-437.
 #' \describe{
 #' \item{CropType}{Determines the category of crop  Units: -  Default value: 
-#' 1 = Leafy vegetable; 2 = Root/tuber; 3 = Fruit/grain. AquaCrop: fruit/grain 
-#' producing crop}
+#' 1 = Leafy vegetable; 2 = Root/tuber; 3 = Fruit/grain}
 #' \item{CalendarType}{Determines time units for crop development  Units: -  
 #' Default value: 1 = Calendar days; 2 = GDD's}
 #' \item{SwitchGDD}{Determines if inputs (when specified in calendar day mode) 
@@ -31,21 +31,19 @@
 #' \item{YldForm}{Duration of yield formation  Units: Days/GDD's  Default value: -}
 #' \item{GDDmethod}{Method used to calculate GDD's  Units: -  Default value: -}
 #' \item{Tbase}{Base temperature below which crop growth does not occur  Units: 
-#' oC  Default value: -. AquaCrop: Base temperature (°C)}
+#' oC  Default value: -}
 #' \item{Tupp}{Upper temperature above which crop growth does not occur  Units: 
-#' oC  Default value: -. Upper temperature (°C)}
+#' oC  Default value: -}
 #' \item{PolHeatStress}{Determines if pollination is affected by heat stress 
 #'  Units: -  Default value: 0 = No; 1 = Yes}
 #' \item{Tmax up}{Maximum temperature above which pollination begins to fail  
-#' Units: oC  Default value: -. AquaCrop: Maximum air temperature above which 
-#' pollination starts to fail}
+#' Units: oC  Default value: -}
 #' \item{Tmaxlo}{Maximum temperature above which pollination fails completely 
 #'  Units: oC  Default value: -}
 #' \item{PolColdStress}{Determines if pollination is affected by cold stress  
 #' Units: -  Default value: 0 = No; 1 = Yes}
 #' \item{Tmin up}{Minimum temperature below which pollination begins to fail  
-#' Units: oC  Default value: -. AquaCrop: Minimum air temperature below which 
-#' pollination starts to fail }
+#' Units: oC  Default value: -}
 #' \item{Tmin lo}{Minimum temperature below which pollination fails completely  
 #' Units: oC  Default value: -}
 #' \item{BioHeatStress}{Determines if biomass production is affected by 
@@ -66,11 +64,9 @@
 #' \item{fshape ex}{Shape factor describing the effects of water stress 
 #' on root expansion  Units: -  Default value: -6}
 #' \item{SxTopQ}{Maximum water extraction at the top of the root zone  
-#' Units: m3 m-3 day-1  Default value: -. AquaCrop: Maximum root water extraction 
-#' (m3water/m3soil.day) in top quarter of root zone}
+#' Units: m3 m-3 day-1  Default value: -}
 #' \item{SxBotQ}{Maximum water extraction at the bottom of the root zone  
-#' Units: m3 m-3 day-1  Default value: -. AquaCrop: Maximum root water extraction 
-#' (m3water/m3soil.day) in bottom quarter of root zone}
+#' Units: m3 m-3 day-1  Default value: -}
 #' \item{a Tr}{Exponent parameter describing the effect of canopy decline 
 #' on transpiration/photosynthetic capacity  Units: -  Default value: 1}
 #' \item{SeedSize}{Soil surface area covered by an individual seedling at 
@@ -82,8 +78,7 @@
 #' \item{CDC}{Canopy decline coefficient  Units: day-1/GDD-1  Default value: -}
 #' \item{CGC}{Canopy growth coefficient  Units: day-1/GDD-1  Default value: -}
 #' \item{Kcb}{Maximum crop coefficient when canopy is fully developed  Units: -  
-#' Default value: -. AquaCrop: Crop coefficient when canopy is complete but prior 
-#' to senescence (KcTr,x)}
+#' Default value: -}
 #' \item{fage}{Decline of crop coefficient due to ageing of the canopy  Units: 
 #' \% day-1  Default value: -}
 #' \item{WP}{Water productivity normalised for reference evapotranspiration and 
@@ -137,9 +132,9 @@
 #' Units: -  Default value: -}
 #' \item{ETadj}{Determines if water stress thresholds are adjusted for variations in 
 #' daily 
-#' reference evapotranspiration  Units:   Default value: 1 = Yes}
+#' reference evapotranspiration  Units:   Default value: 0 = No 1 = Yes}
 #' \item{Aer}{Water deficit below saturation at which aeration stress begins to occur  Units: \%  
-#' Default value: 5. AquaCrop: Vol% for Anaerobiotic point}
+#' Default value: 5}
 #' \item{LagAer}{Lag before aeration stress affects crop growth  Units: days  Default value: 3}
 #' \item{beta}{Reduction to p lo3 parameter when early canopy senescence is triggered due 
 #' to water stress  Units: \%  Default value: 12}
@@ -147,13 +142,10 @@
 #' to germinate  Units: -  Default value: 0.2}
 #' }
 #' 
-#'
-#'@references
-#'\insertAllCited{}
 #' 
 #' 
 
 
 CropParameters <- function() { 
-
+  
 }

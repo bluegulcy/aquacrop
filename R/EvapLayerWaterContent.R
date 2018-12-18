@@ -3,6 +3,7 @@
 #' @param InitCond Crop setting initial structure
 #' @param wevap watwe evaporation
 #' @return \code{Wevap} for a n time-step.
+#' @export
 #' @examples
 #' EvapLayerWaterContent(InitCond, Soil, Wevap)
 

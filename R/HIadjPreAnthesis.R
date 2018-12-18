@@ -3,6 +3,7 @@
 #' @param Crop Parameters for a given crop
 #' @param InitCond Crop setting initial structure
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' HIadjPreAnthesis(InitCond, Crop)
 

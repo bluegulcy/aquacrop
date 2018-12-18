@@ -5,6 +5,7 @@
 #' @param Groundwater ground water table
 #' @param InitCond Crop setting initial structure
 #' @param ClockStruct Model time settings
+#' @export
 #' @return \code{NewCond} model values for n time-step
 #' @examples
 #' CheckGroundwaterTable(Soil, Groundwater, InitCond)

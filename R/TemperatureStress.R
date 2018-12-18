@@ -4,6 +4,7 @@
 #' @param Tmin min temp for n time-step
 #' @param GDD Growing degree days
 #' @return \code{Kst} temperature stress a n time-step.
+#' @export
 #' @examples
 #' TemperatureStress(Crop, Tmax, Tmin, GDD)
 

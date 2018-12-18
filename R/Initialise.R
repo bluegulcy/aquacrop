@@ -1,6 +1,7 @@
 #' Function to initialise AquaCropR
 #' @param filename An xml file with locations
 #' @return list with \code{FileLocation}.
+#' @export
 #' @examples
 #' ReadFileLocations('dummy.xml')
 

@@ -8,6 +8,7 @@
 #' @param FluxOut Flux
 #' @param DeepPerc0 Deep percolation
 #' @param Runoff water Runoff
+#' @export
 #' @return list with \code{NewCond}, \code{DeepPerc}, \code{RunoffTot}, \code{Infl} and \code{FluxOut} for a n time-step.
 #' @examples
 #' Infiltration(Soil, InitCond, Infl, Irr, IrrMngt, FieldMngt, FluxOut, DeepPerc0, Runoff0)

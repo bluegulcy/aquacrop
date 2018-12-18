@@ -3,6 +3,7 @@
 #' @param FileLocation list with file locations
 #' @param ClockStruct crop calendar
 #' @return \code{ParamStruct}.
+#' @export
 #' @examples
 #' ReadIrrigationManagement(ParamStruct, FileLocation, ClockStruct)
 

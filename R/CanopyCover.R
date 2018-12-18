@@ -6,6 +6,7 @@
 #' @param Et0 Evapotranspiration
 #' @param GrowingSeason crop developmental stage
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' CanopyCover(Crop, Soil, InitCond, GDD, Et0, GrowingSeason)
 

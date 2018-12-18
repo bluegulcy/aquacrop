@@ -3,6 +3,7 @@
 #' @param Soil properties of soil
 #' @param InitCond Crop setting initial structure
 #' @return list with \code{NewCond} and \code{GwIn} groundwater inflow for a n time-step.
+#' @export
 #' @examples
 #' GroundwaterInflow(Soil, InitCond)
 

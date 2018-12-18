@@ -4,6 +4,7 @@
 #' @param IrrMngt irigation management settings
 #' @param InitCond Crop setting initial structure
 #' @return list with \code{NewCond} and \code{PreIrr} for n time-step
+#' @export
 #' @examples
 #' PreIrrigation((Soil, Crop, IrrMngt, InitCond)
 

@@ -5,6 +5,7 @@
 #' @param CCx Maximum canopy cover
 #' @param dt dt parameter
 #' @return list with \code{CCXadj} and \code{CDCadj} for a n time-step.
+#' @export
 #' @examples
 #' UpdateCCxCDC(CCprev,CDC,CCx,dt)
 

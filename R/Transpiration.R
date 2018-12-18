@@ -8,6 +8,7 @@
 #' @param GrowingSeason crop developmental stage
 #' @return list with \code{NewCond}, \code{TrAct} actual transpiration, \code{TrPot_NS} potential transpiration rate no water stress, 
 #' \code{TrPot0} potential transpiration rate, \code{NewCond} and \code{IrrNet} Initialise net irrigation, for a n time-step.
+#' @export
 #' @examples
 #' Transpiration(Soil, Crop, IrrMngt, InitCond, Et0, CO2, GrowingSeason)
 

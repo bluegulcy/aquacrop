@@ -5,6 +5,7 @@
 #' @param IrrMngt Irrigation management
 #' @param InitCond Crop setting initial structure
 #' @return list with \code{NewCond}, \code{Runoff} and \code{Infl} for n time-step
+#' @export
 #' @examples
 #' RainfallPartition(P, Soil, FieldMngt, InitCond)
 

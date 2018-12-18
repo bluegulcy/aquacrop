@@ -8,6 +8,7 @@
 #' @param GDD Growing degree days
 #' @param GrowingSeason crop developmental stage
 #' @return \code{NewCond} for a n time-step.
+#' @export
 #' @examples
 #' HarvestIndex(Soil, Crop, InitCond, Et0, Tmax, Tmin, GDD, GrowingSeason)
 
