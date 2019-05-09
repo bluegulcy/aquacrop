@@ -9,8 +9,6 @@
 #' @examples
 #' ComputeCropCalendar(Crop, CropName, CropChoices, Weather, ClockStruct)
 
-#Crop = ParamStruct$Crop[[CropNames[ii]]]; CropName=CropNames[ii];
-#CropChoices, Weather, ClockStruct
 
 ComputeCropCalendar <- function(Crop, CropName, CropChoices, Weather, ClockStruct){
 

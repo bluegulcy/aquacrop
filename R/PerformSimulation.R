@@ -38,10 +38,9 @@ PerformSimulation <- function(InitialiseStruct){
   
   #i = 1
   ## Get weather inputs for current time step ##
-  #for(i in 1:14){
+  #for(i in 1:17){
   while(InitialiseStruct$ClockStruct$ModelTermination == FALSE){
 
-      #print(i)
       Weather <- ExtractWeatherData(InitialiseStruct)
       #print(as_date(Weather$Dates))
       

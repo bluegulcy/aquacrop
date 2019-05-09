@@ -128,13 +128,16 @@ SoilEvaporation <- function(ClockStruct, Soil, Crop, IrrMngt, FieldMngt,
       ## Adjust potential soil evaporation for mulches and/or partial wetting ##
       # Mulches
       if (NewCond$SurfaceStorage < 0.000001){
+         
+         
           if (FieldMngt$Mulches == 0){
               # No mulches present
               EsPotMul <- EsPot
           } else if (FieldMngt$Mulches == 1){
               # Mulches present (percentage soil surface covered may vary
               # depending on whether within or outside growing season)
-              if (GrowingSeason == true){
+            
+              if (GrowingSeason == TRUE){
                   EsPotMul <- EsPot*(1-FieldMngt$fMulch*(FieldMngt$MulchPctGS/100))
               } else if (GrowingSeason == false){
                   EsPotMul <- EsPot*(1-FieldMngt$fMulch*(FieldMngt$MulchPctOS/100))

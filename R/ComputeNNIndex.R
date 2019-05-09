@@ -12,11 +12,11 @@
 NNINDX <- function(TIME, DOYEM, EMERG, NFGMR, NRMR, NOPTMR, NNI){
  
   
-  TINY=0.001
-  NFGMR = NUPGMR / TBGMR
+  TINY <- 0.001
+  NFGMR <- NUPGMR / TBGMR
   
   if(TIME >=  DOYEM & EMERG == 1) {
-    NNI= limit(TINY, 1.0, ((NFGMR-NRMR)/NOTNUL(NOPTMR-NRMR)))
+    NNI <- limit(TINY, 1.0, ((NFGMR-NRMR)/NOTNUL(NOPTMR-NRMR)))
   } else {
     NNI = 0.0
   }

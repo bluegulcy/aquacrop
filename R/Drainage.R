@@ -16,7 +16,7 @@ Drainage <- function(Soil, InitCond){
 
     ## Preallocate arrays ##
     thnew <- rep(1, Soil$nComp)
-    FluxOut <- rep(1,Soil$nComp)
+    FluxOut <- rep(0,Soil$nComp)
 
     ## Initialise counters and states ##
     drainsum <- 0

@@ -64,6 +64,7 @@ Infiltration <- function(Soil, InitCond, Infl, Irr, IrrMngt, FieldMngt, FluxOut,
             }
         }
     } else if (FieldMngt$Bunds == 0){
+        #FIXME put an message when value isn't 1 or 0
         # No bunds on field
         if (Infl > Soil$Layer$Ksat[1]){
             # Infiltration limited by saturated hydraulic conductivity of top
