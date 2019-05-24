@@ -23,7 +23,7 @@ Description: The AquaCropR package is the R implementation of the AquaCrop crop
     Crop associated variables are normally known and are available for the 
     majority of crops.
 Imports: XML, xml2, pracma, kulife, Rdpack, dplyr, elliptic
-Depends: R (>= 3.5.1)
+Depends: R (>= 3.2.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
