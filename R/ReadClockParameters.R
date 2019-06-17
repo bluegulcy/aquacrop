@@ -35,6 +35,18 @@ ReadClockParameters <- function(FileLocation){
     break}
   
   ClockStruct$SimulationEndDate <- as_datenum(DateStoV)
+  
+  if(ClockStruct$SimulationStartDate >= ClockStruct$SimulationEndDate) { 
+    
+    print(paste('SilumationStartDate:', 
+                  as.Date(ClockStruct$SimulationStartDate, origin = '0000-01-01'), 
+                  '>=', 'SilumationEndDate:', 
+                  as.Date(ClockStruct$SimulationEndDate, origin = '0000-01-01'),
+                  sep = ' '))
+    break
+  }
+  
+  
   # Time step (years)
   ClockStruct$TimeStep <- 1
   # Total numbers of time steps (days)

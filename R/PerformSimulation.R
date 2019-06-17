@@ -41,7 +41,9 @@ PerformSimulation <- function(InitialiseStruct){
   #for(i in 1:17){
   while(InitialiseStruct$ClockStruct$ModelTermination == FALSE){
 
+      
       Weather <- ExtractWeatherData(InitialiseStruct)
+      
       #print(as_date(Weather$Dates))
       
       ## Get model solution ##
