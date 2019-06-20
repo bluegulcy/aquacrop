@@ -1,12 +1,19 @@
-#' Perform simulation
+#' Perform Optimisation
 #' @param InitialiseStruct Crop setting initial structure
 #' @return list with \code{Outputs} results.
 #' @export
 #' @examples
 #' PerfomSimulation(InitialiseStruct)
 
-PerformSimulation <- function(InitialiseStruct){
+PerformSimulationOptimisation <- function(x, InitialiseStruct){
   
+  for(rn in rownames(param_array)){
+     
+     InitialiseStruct$Parameter$Crop[[1]][[rn]] <-  
+       x[match('CGC', rownames(param_array))]
+     
+  }
+   
   
   wc_names <- c()
   
@@ -87,6 +94,11 @@ PerformSimulation <- function(InitialiseStruct){
   results <- mutate(results, 
                     datenum = as_datenum(as.Date(paste(Year, Month, Day, 
                                                        sep = '-'))))
-  return(results)
+  InitialiseStruct[['obs_data']] <- mutate(InitialiseStruct[['obs_data']], 
+                     datenum = as_datenum(as.Date(paste(Year, Month, Day, 
+                                                        sep = '-'))))
+  results <- merge(results, InitialiseStruct[['obs_data']], by = 'datenum')
+  
+ 
 
 }
