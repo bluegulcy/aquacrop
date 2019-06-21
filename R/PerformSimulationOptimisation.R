@@ -3,14 +3,15 @@
 #' @return list with \code{Outputs} results.
 #' @export
 #' @examples
-#' PerfomSimulation(InitialiseStruct)
+#' PerformSimulationOptimisation(InitialiseStruct)
 
 PerformSimulationOptimisation <- function(x, InitialiseStruct){
   
+ 
   for(rn in rownames(param_array)){
      
      InitialiseStruct$Parameter$Crop[[1]][[rn]] <-  
-       x[match('CGC', rownames(param_array))]
+       x[match(rn, rownames(param_array))]
      
   }
    
@@ -94,9 +95,8 @@ PerformSimulationOptimisation <- function(x, InitialiseStruct){
   results <- mutate(results, 
                     datenum = as_datenum(as.Date(paste(Year, Month, Day, 
                                                        sep = '-'))))
-  InitialiseStruct[['obs_data']] <- mutate(InitialiseStruct[['obs_data']], 
-                     datenum = as_datenum(as.Date(paste(Year, Month, Day, 
-                                                        sep = '-'))))
+
+  
   results <- merge(results, InitialiseStruct[['obs_data']], by = 'datenum')
   
  

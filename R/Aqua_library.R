@@ -605,3 +605,62 @@ run_metropolis_MCMC <- function(startvalue, iterations){
 posterior <- function(param){
   return (likelihood(param) + prior(param))
 }
+
+
+#' Set optimiser
+#' @param param_array n x m matrix where n are parameters and m are cols 
+#' indicating minimum and maximum value for each parameter 
+#' @param InitialiseStruct Crop setting initial structure
+#' @param emp_data empiral data to calibrate model
+#' @param op_settings optimiser settings
+#' @return best paramaters
+#' @export
+#' @examples
+#' set_optimiser(param_array, InitialiseStruct, emp_data, op_settings)
+#' 
+SetOptimiser <- function(param_array, InitialiseStruct, emp_data, op_settings){
+  
+  lower <- param_array[,1]
+  upper <- param_array[,2]
+  emp_data <- mutate(emp_data, datenum =  
+                       as_datenum(as.Date(paste(year, month, day, 
+                                                sep = '-'))))
+  
+  InitialiseStruct[['obs_data']] <<- emp_data
+ 
+ 
+  Outputs <- DEoptim(ParamCalibration, lower, upper,
+                     control = op_settings)
+  
+  for(rn in rownames(param_array)){
+    
+    InitialiseStruct$Parameter$Crop[[1]][[rn]] <- Outputs$optim$bestmem[[rn]]
+    
+  }
+  
+  results <- PerformSimulation(InitialiseStruct)
+  results <- merge(results, emp_data, by = 'datenum')
+  
+  plot(results[['obsbio']], col = 'black', ylab = 'Biomass (g m-2)')
+  points(results$Bio, pch = 14, col = 'red')
+  legend("topleft", legend=c("Observed", "Predicted"),
+         col=c("black", "red"), lty=1:2, cex=0.8)
+  
+  return(Outputs$optim$bestmem)
+  
+}
+
+#' Perform optimisation
+#' @param parameters to test in model
+#' @examples
+#' Param_calibration(param)
+ParamCalibration <- function(param){
+  
+  
+  out <-  PerformSimulationOptimisation(param, InitialiseStruct)
+  res <- caret::postResample(out[['Bio']], out[['obsbio']])
+  
+  RMSE   <- res[[1]]
+  
+  
+}

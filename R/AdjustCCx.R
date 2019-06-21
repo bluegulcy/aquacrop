@@ -1,4 +1,5 @@
-#' Adjust CCx value for changes in CGC due to water stress during the growing season, AquacropR
+#' Adjust CCx value for changes in CGC due to water stress during the growing 
+#' season, AquacropR
 #' @param CCprev Prev Cannopy cover
 #' @param CCo initial canopy cover at the time of 90\% crop emergence
 #' @param CCx Maximum canopy cover

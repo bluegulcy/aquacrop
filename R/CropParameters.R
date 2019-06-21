@@ -3,7 +3,9 @@
 #' @format A file in xml format should be provided with the following fields. 
 #' Guidance on appropriate
 #' parameter values for different crop types can be obtained from the FAO 
-#' AquaCrop manual Steduto et sl (2009), Agronomy Journal, 2009, 101, 426-437.
+#' AquaCrop manual Steduto et al (2009), Agronomy Journal, 2009, 101, 426-437 
+#' or
+#' https://github.com/anyelacamargo/AquaExamples/FAOCrops.pdf
 #' \describe{
 #' \item{CropType}{Determines the category of crop  Units: -  Default value: 
 #' 1 = Leafy vegetable; 2 = Root/tuber; 3 = Fruit/grain}

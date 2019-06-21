@@ -2,7 +2,8 @@
 % Please edit documentation in R/AdjustCCx.R
 \name{AdjustCCx}
 \alias{AdjustCCx}
-\title{Adjust CCx value for changes in CGC due to water stress during the growing season}
+\title{Adjust CCx value for changes in CGC due to water stress during the growing 
+season, AquacropR}
 \usage{
 AdjustCCx(CCprev, CCo, CCx, CGC, CDC, dt, tSum, Crop)
 }
@@ -27,7 +28,8 @@ AdjustCCx(CCprev, CCo, CCx, CGC, CDC, dt, tSum, Crop)
 with \code{CCxAdj} for a n time-step.
 }
 \description{
-Adjust CCx value for changes in CGC due to water stress during the growing season
+Adjust CCx value for changes in CGC due to water stress during the growing 
+season, AquacropR
 }
 \examples{
 AdjustCCx(CCprev, CCo, CCx, CGC, CDC, dt, tSum, Crop)
