@@ -33,23 +33,38 @@ also contains one example which you can use to learn to use AquaCropR.
 
 ### How do I get set up? ###
 
-* Summary of set up
-  Run R: install.packages("devtools")
-  Install the devtools package: install.packages("devtools")
-  Load the devtools package: library(devtools)
-  Install the AquaCrop package: install_github("anyelacamargo/aquacropr")
-  Load the libary: library(AquaCropR)
+To install AquaCropR, follow these steps:
 
+* Clone the AquaCrop repository
+(git clone https://bitbucket.org/anyelacamargo/aquacropr.git)
+* Run R
+*  Install the devtools package (if not available already)
+(install.packages("devtools"))
+* Load the devtools package.
+(library(devtools))
+*  Set working directory to AquaCrop's location
+setwd('your location/AquaCropR')
+*  Set working directory a level above AquaCropR
+setwd('..')
+* Install AquaCropR
+Install('AquaCropR')
+* Use the following command to test AquaCropR's installation
+?? AquaCropR
+You should be able to see the package's help.
 
 * Dependencies: XML, xml2, pracma, kulife, Rdpack, dplyr
 
 ### How to run tests ##
 
-Run the file 'simulate_dummy.R'. The scripts points to the file 
-'FileSetup_babycorn.xml' which has the name of the setup files describing your 
-simulation. These setup files are located in the folder 'input_babycorn folder'.
-Once the simulation is finished, a data.frame will be returned which will be
-used to create six plots which will be located in the 'output_babycorn' folder.
+The following is the procedure to run a validation test set to simulate wheat 
+yields. More details on the dataset are given in Section 4.
+
+* Clone AquaExamples repo (https://github.com/anyelacamargo/AquaExamples.git)
+* Load R
+* setwd('path/AquaExamples) # This is the path to AquaExamples
+* source('simulate_dummy_maize')
+
+
 
 
 ### Contribution guidelines ###
