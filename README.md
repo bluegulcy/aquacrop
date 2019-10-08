@@ -38,18 +38,12 @@ To install AquaCropR on Windows, follow these steps:
 * Clone the AquaCrop repository
 (git clone https://bitbucket.org/anyelacamargo/aquacropr.git)
 * Run R
-*  Install the devtools package (if not available already)
-(install.packages("devtools"))
-* Load the devtools package.
-(library(devtools))
-*  Set working directory to AquaCrop's location
-setwd('your location/AquaCropR')
-*  Set working directory a level above AquaCropR
-setwd('..')
-* Install AquaCropR
-(install('AquaCropR'))
-* Use the following command to test AquaCropR's installation
-?? AquaCropR
+*  Install the devtools package (if not available already): install.packages("devtools")
+* Load the devtools package: library(devtools)
+*  Set working directory to AquaCrop's location: setwd('your location/AquaCropR')
+*  Set working directory a level above AquaCropR: setwd('..')
+* Install AquaCropR: install('AquaCropR')
+* Use the following command to test AquaCropR's installation: ?? AquaCropR
 You should be able to see the package's help.
 
 * Dependencies: XML, xml2, pracma, kulife, Rdpack, dplyr
@@ -57,25 +51,20 @@ You should be able to see the package's help.
 ### How do I get set up on LINUX? ###
 
 NOTE: Linux is case sensitive
+
 To install AquaCropR on Linux, follow these steps:
 
 * Clone the AquaCrop repository
 (git clone https://bitbucket.org/anyelacamargo/aquacropr.git)
 * Run R
-*  Install the devtools package (if not available already)
-(install.packages("devtools"))
-* Load the devtools package.
-(library(devtools))
-*  Set working directory to AquaCrop's location
-setwd('your location/aquacropr')
+*  Install the devtools package (if not available already): install.packages("devtools")
+* Load the devtools package: library(devtools)
+*  Set working directory to AquaCrop's location: setwd('your location/aquacropr')
 *  Set working directory a level above AquaCropR
 setwd('..')??
-* Install AquaCropR
-install('aquacropr')
-* Load AquaCropR
-library(AquaCropR)
-* Use the following command to test AquaCropR's installation
-?? AquaCropR
+* Install AquaCropR: install('aquacropr')
+* Load AquaCropR: library(AquaCropR)
+* Use the following command to test AquaCropR's installation: ?? AquaCropR
 
 You should be able to see the package's help.
 
@@ -90,8 +79,6 @@ yields. More details on the dataset are given in Section 4.
 * Load R
 * setwd('path/AquaExamples) # This is the path to AquaExamples
 * source('simulate_dummy_maize')
-
-
 
 
 ### Contribution guidelines ###
