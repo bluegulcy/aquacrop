@@ -31,9 +31,9 @@ also contains one example which you can use to learn to use AquaCropR.
 0.0.0.9000
 
 
-### How do I get set up? ###
+### How do I get set up on WINDOWS? ###
 
-To install AquaCropR, follow these steps:
+To install AquaCropR on Windows, follow these steps:
 
 * Clone the AquaCrop repository
 (git clone https://bitbucket.org/anyelacamargo/aquacropr.git)
@@ -47,9 +47,36 @@ setwd('your location/AquaCropR')
 *  Set working directory a level above AquaCropR
 setwd('..')
 * Install AquaCropR
-Install('AquaCropR')
+(install('AquaCropR'))
 * Use the following command to test AquaCropR's installation
 ?? AquaCropR
+You should be able to see the package's help.
+
+* Dependencies: XML, xml2, pracma, kulife, Rdpack, dplyr
+
+### How do I get set up on LINUX? ###
+
+NOTE: Linux is case sensitive
+To install AquaCropR on Linux, follow these steps:
+
+* Clone the AquaCrop repository
+(git clone https://bitbucket.org/anyelacamargo/aquacropr.git)
+* Run R
+*  Install the devtools package (if not available already)
+(install.packages("devtools"))
+* Load the devtools package.
+(library(devtools))
+*  Set working directory to AquaCrop's location
+setwd('your location/aquacropr')
+*  Set working directory a level above AquaCropR
+setwd('..')??
+* Install AquaCropR
+install('aquacropr')
+* Load AquaCropR
+library(AquaCropR)
+* Use the following command to test AquaCropR's installation
+?? AquaCropR
+
 You should be able to see the package's help.
 
 * Dependencies: XML, xml2, pracma, kulife, Rdpack, dplyr
